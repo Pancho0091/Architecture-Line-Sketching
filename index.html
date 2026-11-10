@@ -331,6 +331,20 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 .tcard dd.pit::before{content:"✕ "}
 
 
+/* ===== technique section ===== */
+#technique .phase{scroll-margin-top:70px}
+tr.on>td{background:#f1f1ef}
+#pivTable tr[data-j],#progTable tr[data-k],#faultTable tr[data-f]{transition:background .2s}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.cols2 .box{min-width:0}
+.cols2 .box.key{background:var(--ink);color:#fff}.cols2 .box.key h5{color:#cfcfcd}
+.reflist{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.reflist li{border:1.5px solid var(--ink);padding:14px 16px;display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.45}
+.reflist a{color:var(--ink);text-decoration:none;font-size:15px}.reflist a:hover b{text-decoration:underline}
+details.code{border:1.5px solid var(--ink);padding:12px 16px;margin-top:14px}details.code summary{cursor:pointer;min-height:32px}
+pre.script{font-size:12px;line-height:1.45;max-height:420px;overflow:auto;background:#f6f6f4;padding:12px;white-space:pre}
+#pivOut .ok,#progOut .ok{font-weight:700}#pivOut .ok::before{content:"✓ "}#pivOut .bad{font-weight:700;text-decoration:underline}#pivOut .bad::before{content:"✕ "}
+@media (max-width:640px){.cols2{grid-template-columns:1fr}#technique .lab .cvwrap{overflow-x:auto}#pivCv,#progCv,#faultCv{min-width:560px}}
+
 /* ===== explain / demo / do (mono) ===== */
 .modes{display:flex;gap:0;border-bottom:2px solid var(--ink);margin:0 0 22px;padding:0 clamp(16px,3vw,32px)}
 .modes [role=tab]{appearance:none;background:#fff;color:var(--ink);border:1.5px solid var(--ink);border-bottom:0;border-radius:0;margin-right:-1.5px;padding:12px 20px;min-height:44px;font:700 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:10px}
@@ -355,6 +369,12 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 .pad-out .ok{font-weight:700;color:var(--ink)}.pad-out .ok::before{content:"✓ "}.pad-out .bad{font-weight:700;text-decoration:underline}.pad-out .bad::before{content:"✕ "}
 @media (max-width:760px){.do-grid{grid-template-columns:1fr}}
 @media (max-width:640px){.modes{padding:0}.modes [role=tab]{flex:1;justify-content:center;padding:12px 6px;letter-spacing:.06em}.demo .cvwrap,.do-fig .cvwrap,.demo-svg,.do-ref-svg{overflow-x:auto}.demo-cv,.do-ref-cv,.demo-svg svg,.do-ref-svg svg{min-width:560px}.pad .cvwrap{overflow:visible}.pad-cv{min-width:0}.demo-count{width:100%;margin:6px 0 0}}
+#pivLen,#progWk{min-height:32px}
+
+/* ===== media guide ===== */
+ol.wf{padding-left:20px;margin:0}ol.wf li{margin-bottom:6px}
+#nibTable tr td:first-child,#pencilTable tr td:first-child{white-space:nowrap}
+@media (max-width:640px){#media-guide .lab .cvwrap{overflow-x:auto}#nibCv,#nibStrip,#pencilCv{min-width:560px}}
 </style>
 </head>
 <body>
@@ -377,7 +397,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </header>
 
 <nav class="toc">
-  <a href="#toolkit">Toolkit</a><a href="#model">Model</a><a href="#lesson-pipeline">Pipeline</a><a href="#tree">Skill tree</a><a href="#curriculum">Curriculum</a><a href="#schools">Schools</a><a href="#daily">Daily session</a><a href="#log">Log</a><a href="#verify">Verification</a><a href="#resources">Resources</a><a href="#sources">Sources</a>
+  <a href="#toolkit">Toolkit</a><a href="#media-guide">Pens &amp; pencils</a><a href="#technique">Technique</a><a href="#model">Model</a><a href="#lesson-pipeline">Pipeline</a><a href="#tree">Skill tree</a><a href="#curriculum">Curriculum</a><a href="#schools">Schools</a><a href="#daily">Daily session</a><a href="#log">Log</a><a href="#verify">Verification</a><a href="#resources">Resources</a><a href="#sources">Sources</a>
 </nav>
 
 <!-- TOOLKIT -->
@@ -407,6 +427,45 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 
 <p class="rule"><span class="k">Already have a pencil set?</span>Use the hardest grade you can still see without pressing; that's usually 2H, or HB if 2H is too faint. Harder than about 4H dents the paper and ink catches in the grooves; 2B and softer smear and leave a waxy layer ink can skip on, so keep them for thumbnails and value studies you won't ink. <b>Test:</b> on a scrap of your sketchbook, draw a line with each grade, ink across them with your pen, wait 10 minutes and erase. Keep the hardest grade that was clearly visible, left no dent and erased fully.</p>
 <p class="rule"><span class="k">Only have one pen?</span>Start anyway: all of Phase 1 works with a single nib. With a 0.35 mm pen (the width of a Micron 03), fake week 3's weights: two strokes side by side for silhouettes, one stroke for detail, a broken line or pencil for distance. In Phase 2 each layer covers more paper, so space hatching wider (about 0.7 mm for near-black with 4 crossed layers). Buy next in this order: 01 (your hatching pen), then 005, then 05.</p>
+
+<div class="phase" id="media-guide">
+<h3>Visual guide: what each pen and pencil does</h3>
+<p class="rule"><span class="k">Rule</span>In ink, a line's <b>width</b> is set by the nib and never by pressure, and <b>tone</b> = line width ÷ spacing. In pencil, the <b>grade</b> sets how dark, how smudgy and how erasable a mark is. Pick the tool for the job the mark does: structure, edge, detail, texture or value.</p>
+
+<div class="lab">
+<h4><span class="tag">Lab K1</span> Same drawing, different pens</h4>
+<p class="hint">One small elevation drawn four ways. Watch what changes when every line is the same weight versus a hierarchy. Shown magnified (about 8 px per mm), so judge the <i>relationships</i>, not absolute darkness.</p>
+<div class="cvwrap"><canvas id="nibCv" role="img" aria-label="The same building elevation drawn with the selected pen set"></canvas></div>
+<div class="controls"><label>Pen set <select id="nibSet">
+<option value="hier" selected>Your kit: 05 / 03 / 01 / 005</option>
+<option value="bold">High contrast: 0.8 / 03 / 005 / 0.1</option>
+<option value="one">One pen: 0.35 only</option>
+<option value="fine">Everything 0.2</option>
+<option value="heavy">Everything 0.8</option></select></label></div>
+<div class="readout" id="nibOut" aria-live="polite"></div>
+</div>
+
+<div class="lab">
+<h4><span class="tag">Lab K2</span> Nib sizes side by side</h4>
+<p class="hint">Nine widths from your two sets: a single line, then the same 1.5 mm hatching, then cross-hatching; the % is one layer's tone at 1.5 mm spacing. Same spacing, different nib = different tone. Your 5-pen kit is outlined.</p>
+<div class="cvwrap"><canvas id="nibStrip" role="img" aria-label="Nine nib widths compared: line, hatching and cross-hatching"></canvas></div>
+</div>
+<div class="tbl"><table id="nibTable"><tr><th>Width</th><th>Staedtler pigment liner</th><th>Sakura Micron</th><th>Tone at 1 mm · 2 mm spacing</th><th>Architectural job</th><th>For you</th></tr><tr data-p="0.05"><td><b>0.05 mm</b></td><td>Staedtler 0.05</td><td>—</td><td>5% · 2%</td><td>Hair-fine: far distance, tiny stipple</td><td>Fragile: never press</td></tr><tr data-p="0.10"><td><b>0.10 mm</b></td><td>Staedtler 0.1</td><td>—</td><td>10% · 5%</td><td>Distant texture, faint guidelines in ink</td><td>Background layer</td></tr><tr data-p="0.15"><td><b>0.15 mm</b></td><td>—</td><td>Micron 003</td><td>15% · 8%</td><td>Very fine texture, small-scale stipple</td><td>Fragile tip</td></tr><tr data-p="0.20"><td><b>0.20 mm</b></td><td>Staedtler 0.2</td><td>Micron 005</td><td>20% · 10%</td><td><b>Texture</b>: brick joints, wood grain, roof tile, distance</td><td>★ Kit: texture</td></tr><tr data-p="0.25"><td><b>0.25 mm</b></td><td>—</td><td>Micron 01</td><td>25% · 12%</td><td><b>Detail and hatching</b>: mullions, railings, most tone</td><td>★ Kit: the workhorse</td></tr><tr data-p="0.30"><td><b>0.30 mm</b></td><td>Staedtler 0.3</td><td>Micron 02</td><td>30% · 15%</td><td>A middle weight between detail and edges</td><td>Spare / drill pens</td></tr><tr data-p="0.35"><td><b>0.35 mm</b></td><td>—</td><td>Micron 03 (+ your old 0.35)</td><td>35% · 18%</td><td><b>Edges</b>: planar corners, door and window frames</td><td>★ Kit: edges</td></tr><tr data-p="0.45"><td><b>0.45 mm</b></td><td>—</td><td>Micron 05, Micron PN</td><td>45% · 22%</td><td><b>Profiles</b>: building silhouette, nearest edges</td><td>★ Kit: profiles · <b>drill + weekly-test pen</b> (Micron 05)</td></tr><tr data-p="0.50"><td><b>0.50 mm</b></td><td>Staedtler 0.5</td><td>Micron 08</td><td>50% · 25%</td><td>Heavy profiles in larger drawings</td><td>Staedtler 0.5 = spare drill pen</td></tr><tr data-p="0.60"><td><b>0.60 mm</b></td><td>—</td><td>Micron 10</td><td>60% · 30%</td><td>Ground line, section cuts</td><td>Occasional</td></tr><tr data-p="0.70"><td><b>0.70 mm</b></td><td>—</td><td>Micron 12</td><td>70% · 35%</td><td>Bold outlines, small dark fills</td><td>Occasional</td></tr><tr data-p="0.80"><td><b>0.80 mm</b></td><td>Staedtler 0.8</td><td>—</td><td>80% · 40%</td><td><b>Ground line and the darkest accents</b></td><td>★ Kit: accents</td></tr><tr data-p="1.0"><td><b>1.0 mm</b></td><td>Staedtler 1.0</td><td>—</td><td>100% · 50%</td><td>Filling dark shapes: open doorways, deep windows (poché)</td><td>Fills, not lines</td></tr><tr data-p="1.2"><td><b>1.2 mm</b></td><td>Staedtler 1.2</td><td>—</td><td>120% · 60%</td><td>Big black fills; thumbnail value blocks in ink</td><td>Fills, not lines</td></tr></table></div>
+<div class="cols2"><div class="box key"><h5>Your kit from 18 pens</h5><ol class="wf"><li><b>Texture</b> · Micron 005 (0.20)</li><li><b>Detail / hatching</b> · Micron 01 (0.25)</li><li><b>Edges</b> · Micron 03 (0.35)</li><li><b>Profiles</b> · Micron 05 (0.45)</li><li><b>Accents / ground</b> · Staedtler 0.8</li></ol><p class="small">Each step is roughly 1.2–1.8× the last, so the weights read as different. The rest are spares and specials.</p></div>
+<div class="box"><h5>How to use two brands</h5><ul class="dot"><li><b>Drills and weekly tests:</b> Micron 05 (0.45), always the same pen so results compare; Drawabox uses ~0.5.</li><li><b>Duplicates</b> (0.2, 0.3, 0.5 in both sets) become drill pens, so your Micron kit stays sharp.</li><li><b>PN</b> has a tougher plastic nib: your pocket pen for café sketching.</li><li><b>0.05, 0.1, 003</b> are fragile: light touch only, never for drills.</li><li><b>1.0 and 1.2</b> are fill tools for dark shapes, not line pens.</li></ul></div></div>
+<p class="small muted">Widths: <a href="https://www.dickblick.com/items/sakura-pigma-micron-pens-set-of-10-black-assorted-wide">Blick's Micron 10-set chart</a> (003 = 0.15 … 12 = 0.70, PN ≈ 0.45 mm) and <a href="https://www.staedtler.com/uk/en/products/products-for-colouring/fineliners/pigment-liner-308-fineliner-m308/">Staedtler pigment liner 308</a> (the number is the approximate width). Micron's code is <i>not</i> the width; compare by millimeters. Tone = width ÷ spacing for one layer of parallel lines (e.g. 0.35 mm lines every 1 mm cover 35% of the paper); real ink spreads a little on soft paper, so read it as a minimum. Jobs follow the line-weight hierarchy in <a href="#tq-stroke">Line technique</a>.</p>
+
+<div class="lab">
+<h4><span class="tag">Lab K3</span> Your pencils: Staedtler Mars Lumograph 2H → 6B</h4>
+<p class="hint">Rows: a tone swatch at the same light pressure, a single line, a smudge test (right half rubbed with a finger), and what's left after inking over the pencil and erasing. Tap a column for its row in the table.</p>
+<div class="cvwrap"><canvas id="pencilCv" role="img" aria-label="Six pencil grades compared: tone, line, smudge and erase-under-ink"></canvas></div>
+<div class="readout" id="pencilOut" aria-live="polite">Tap a grade.</div>
+</div>
+<div class="tbl"><table id="pencilTable"><tr><th>Grade</th><th>Lead</th><th>Mark</th><th>Smudge</th><th>Erasing after ink</th><th>Use in this program</th></tr><tr data-g="2H"><td><b>2H</b></td><td>Hard</td><td>Light gray, crisp, fine point holds</td><td>Very low</td><td>Clean, near-invisible</td><td>Construction lines you will ink over (light pressure: pressing dents the paper)</td></tr><tr data-g="HB"><td><b>HB</b></td><td>Middle</td><td>Medium gray</td><td>Low</td><td>Mostly clean; a faint ghost if pressed</td><td>Construction lines if 2H is too faint; thumbnails; everyday sketching</td></tr><tr data-g="B"><td><b>B</b></td><td>Soft</td><td>Darker, smoother</td><td>Moderate</td><td>Leaves a gray ghost; can gray the ink edge</td><td>Loose sketching and gesture; thumbnails</td></tr><tr data-g="2B"><td><b>2B</b></td><td>Soft</td><td>Dark, slightly glossy</td><td>Noticeable</td><td>Smears gray around ink lines</td><td>Value thumbnails (the 5 × 7 cm planning sketches)</td></tr><tr data-g="4B"><td><b>4B</b></td><td>Very soft</td><td>Very dark, grainy, shiny when layered</td><td>High</td><td>Hard to remove; greys the page</td><td>Value studies: blocking big shadow shapes</td></tr><tr data-g="6B"><td><b>6B</b></td><td>Very soft</td><td>Near-black, rough, glossy</td><td>Very high</td><td>Don't: it smears and leaves a waxy film ink can skip on</td><td>Darkest accents in pencil-only value studies; never under ink</td></tr></table></div>
+<div class="cols2"><div class="box key"><h5>Your workflow with this set</h5><ol class="wf"><li><b>Thumbnail</b> in HB or 2B (value, composition).</li><li><b>Construction lines</b> in 2H, light pressure (horizon, vanishing lines, boxes).</li><li><b>Ink</b> over the 2H with your pen.</li><li><b>Wait ~10 min</b>, then erase with a kneaded eraser.</li><li><b>Value studies</b> on a separate page: 2B → 4B → 6B, never under ink.</li></ol></div>
+<div class="box"><h5>Test it yourself (5 min)</h5><p>On a scrap of your sketchbook, draw one line with each of the six pencils. Ink across all six with your 0.35, wait 10 minutes, erase. Keep the hardest grade you could see easily that left no ghost: that is your construction pencil. Prediction: 2H or HB wins; 4B and 6B leave a gray halo around the ink.</p></div></div>
+<p class="small muted">Grade behavior: soft (B) grades lay down more graphite, so they are darker, smudge more and are harder to erase; hard (H) grades are lighter, hold a point and can dent the paper when pressed (<a href="https://www.jetpens.com/Lead-Grades-Explained/vd/360">JetPens: lead grades explained</a>; <a href="https://www.jacksonsart.com/en-us/a-guide-to-pencils">Jackson's guide to pencils</a>; <a href="https://www.proko.com/community/topics/erasing-the-pencil-underneath-the-ink">Proko forum: erasing pencil under ink</a>). The swatches are illustrations of those relationships, not measured densities: grades are not standardized across brands.</p>
+</div>
 <h3>Shopping checklist</h3>
 <ul class="tick" data-store="shop">
 <li><label><input type="checkbox"><span>Pigment fineliners in four widths, about 0.20 / 0.25 / 0.35 / 0.45 mm</span></label></li>
@@ -432,6 +491,195 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 <li>Sets of 8+ nib sizes: four sizes cover everything here.</li>
 <li>Drawing tablets or apps: a different skill, because undo removes the constraint this program trains.</li>
 </ul>
+</section>
+
+<!-- TECHNIQUE -->
+<section id="technique">
+<h2>Line technique</h2>
+<p class="rule"><span class="k">Rule</span>A straight line is not drawn by one joint. Any single joint rotating alone draws an arc; a straight line comes from the shoulder and elbow moving together, planned before the pen lands and executed in one committed stroke. Train that motor pattern first, in isolation, until it is boringly repeatable. Everything later in the program is built out of it.</p>
+<p>This is step one. Do the <b>Foundation</b> stages (2 weeks, 20 min a day) before Phase 1 of the curriculum, then keep the 10-minute <a href="#tq-warmup">warm-up</a> before every session for the rest of the program. A weekly test tells you, with numbers, whether it is working.</p>
+<div class="lesson-index"><span class="caps">In this section</span><a href="#tq-setup">1 Setup</a><a href="#tq-joints">2 Joints</a><a href="#tq-stroke">3 The stroke</a><a href="#tq-faults">4 Faults</a><a href="#tq-progress">5 Progression</a><a href="#tq-drills">6 Drill ladder</a><a href="#tq-warmup">7 Warm-up</a><a href="#tq-measure">8 Measure</a><a href="#tq-science">9 Why it works</a><a href="#tq-examples">10 Examples</a><a href="#lesson-technique">Lesson sheet</a></div>
+
+<div class="phase" id="tq-setup">
+<h3><span style="color:var(--muted)">1</span> Setup: grip, posture, page</h3>
+<dl class="spec">
+<dt>Grip</dt><dd>Keep your normal writing grip; in studies of children, four mature grips gave the same speed, legibility and force (<a href="https://bpb-us-e1.wpmucdn.com/wp.nyu.edu/dist/f/9784/files/2023/04/Research-Data-Table-for-the-Write-Way-Infographic.pdf" target="_blank" rel="noopener">Schwellnus et al.</a>). Change what moves, not how you hold. Relaxed: “do not squeeze the pen” (Ching). Hold about 1–2 cm from the tip for detail and hatching, 3–5 cm for long lines [rule of thumb].</dd>
+<dt>Pen angle</dt><dd>Fineliners (Micron, Copic Multiliner): hold like a normal pen, about 60–90° [rule of thumb]; steel-tube technical pens at 90° (<a href="https://cultpens.com/pages/guide-to-technical-pens" target="_blank" rel="noopener">Cult Pens</a>). A low angle drags the side of the nib: wider, rougher line and uneven wear.</dd>
+<dt>Pressure</dt><dd>Writing pressure or less. On a Micron PN, heavy pressure widens a 0.4 mm line to about 0.6 mm (<a href="https://www.larrypost.com.au/blog/post/pigma-micron-under-the-scope" target="_blank" rel="noopener">Larry Post</a>), so pressure breaks consistency and wears the nib. Weight comes from <b>nib size</b>, never from pressing.</dd>
+<dt>Posture</dt><dd>Sit upright, feet flat, <b>elbow off the table</b> (a planted elbow becomes a pivot; Drawabox discourages it). Resting the side of the hand lightly on the page is fine. Paper slightly toward your drawing side so the arm swings without hitting your body.</dd>
+<dt>Left-handed?</dt><dd>Mirror everything: your best direction is usually a pull toward you or a right-to-left sweep; rotate the page clockwise rather than counter-clockwise; work left-to-right across the page only if you can keep your hand off wet ink (pigment fineliners dry in seconds, but rest on a scrap sheet). A hooked wrist is fine as long as the wrist doesn't rotate through long strokes.</dd>
+<dt>Paper</dt><dd>Drills and warm-ups go on <b>printer paper</b>: cheap enough that you won't be precious about a page. Weekly tests always use the same paper and the same pen, so results compare week to week. Sketchbook is for applied drawings.</dd>
+<dt>Page</dt><dd><b>Rotate the page, not your body</b>: find your single best stroke direction (usually a pull toward you, or a left-to-right sweep for right-handers) and turn the page so every line uses it. A flat page seen at an angle foreshortens your drawing; tilt the book 15–30° or check by holding it upright now and then.</dd>
+<dt>Light and state</dt><dd>Light from the side opposite your drawing hand. Tremor (8–12 Hz) rises with caffeine, fatigue, anxiety and right after exercise (<a href="https://fpnotebook.com/Neuro/Tremor/PhyslgcTrmr.htm" target="_blank" rel="noopener">FPnotebook</a>): do measured tests before the second espresso.</dd>
+</dl>
+<div class="tbl"><table><tr><th>Mark</th><th>Anchor</th><th>Why</th></tr>
+<tr><td>Detail, hatching, texture: marks ≤ 3.5 cm</td><td>Heel of the hand or pinky rests on the page</td><td>Support cuts tremor 2–4× (surgery data); the arc is too small to see</td></tr>
+<tr><td>Structural lines &gt; 3.5 cm</td><td>Nothing fixed; the hand may glide on the pinky</td><td>Any fixed point becomes a pivot and bends the line</td></tr></table></div>
+</div>
+
+<div class="phase" id="tq-joints">
+<h3><span style="color:var(--muted)">2</span> Joints: why lines curve</h3>
+<dl class="spec"><dt>Rule</dt><dd>A joint is a compass: the pen tip moves on a circle whose radius is the joint-to-tip distance. A chord of length L on radius r bows by r − √(r² − (L/2)²) ≈ L²/8r. So the bow grows with the <b>square</b> of the stroke length and falls with the radius.</dd>
+<dt>Analogy</dt><dd>Your arm is a two-link robot arm. One rotating joint can only sweep an arc; a straight tool path needs two joints solving for it together (inverse kinematics). The shoulder swings, the elbow opens, and their two arcs cancel. That coordination is the skill.</dd>
+<dt>Exception</dt><dd>Short marks. Below about 3.5 cm even the wrist bows less than 1 mm, and the wrist is more precise; use it for hatching and texture, which Ching builds from relatively short strokes.</dd></dl>
+<div class="lab">
+<h4><span class="tag">Lab T1</span> Pivot lab</h4>
+<p class="hint">Pick a joint and a stroke length (geometry model; radii are [rule of thumb]). The readout gives the bow of the arc that joint alone would draw, against the program's 1 mm straightness rubric. Radii are typical adult joint-to-pen-tip distances.</p>
+<div class="cvwrap"><canvas id="pivCv" role="img" aria-label="Pivot lab: the arc a single joint draws for the chosen stroke length"></canvas></div>
+<div class="controls"><label>Joint <select id="pivJoint"><option value="finger">Fingers</option><option value="wrist" selected>Wrist</option><option value="elbow">Elbow</option><option value="shoulder">Shoulder alone</option><option value="combo">Shoulder + elbow together</option></select></label>
+<label>Stroke length <input type="range" id="pivLen" min="1" max="20" value="15"> <span id="pivLenVal">15 cm</span></label></div>
+<div class="readout" id="pivOut" aria-live="polite"></div>
+</div>
+<div class="tbl"><table id="pivTable"><tr><th>Driver</th><th>Radius (joint → tip)</th><th>Longest stroke with bow ≤ 1 mm</th><th>Bow on a 15 cm line</th><th>Use it for</th></tr><tr data-j="finger"><td><b>Fingers</b></td><td>≈ 4 cm</td><td>≈ 1.8 cm</td><td>—</td><td>Lettering, stipple, tiny detail</td></tr><tr data-j="wrist"><td><b>Wrist</b></td><td>≈ 15 cm</td><td>≈ 3.5 cm</td><td>20 mm</td><td>Hatching strokes, brick and stone texture, mullions, marks ≤ 3 cm</td></tr><tr data-j="elbow"><td><b>Elbow</b></td><td>≈ 40 cm</td><td>≈ 5.7 cm</td><td>7 mm</td><td>Medium curves, arcs, ellipses</td></tr><tr data-j="shoulder"><td><b>Shoulder alone (arm straight)</b></td><td>≈ 70 cm</td><td>≈ 7.5 cm</td><td>4 mm</td><td>Big sweeping arcs</td></tr><tr data-j="combo"><td><b>Shoulder + elbow together</b></td><td>— (no fixed pivot)</td><td>any length on the page</td><td>≈ 0 when trained</td><td>Every structural straight line over ~4 cm</td></tr></table></div>
+<p class="small muted">Radii and bows are geometry from typical adult proportions [rule of thumb]. Seated with the elbow bent, shoulder-to-tip is nearer 45–55 cm (≈ 5–6 mm bow on 15 cm), which only strengthens the point. Fingers don't rotate about one pivot, so their row is a loose approximation. the joint roles follow Lacquaniti et al. (1987), who measured shoulder and elbow rotation growing with drawing size while wrist and finger motion stayed small.</p>
+</div>
+
+<div class="phase" id="tq-stroke">
+<h3><span style="color:var(--muted)">3</span> The stroke: plan, ghost, execute</h3>
+<ol class="steps">
+<li><strong>Plan.</strong> Place both endpoints as dots (or crosses). The line now has a target at each end.</li>
+<li><strong>Rotate.</strong> Turn the page so the line runs in your best direction. Pull, don't push (Ching).</li>
+<li><strong>Ghost 3×.</strong> Run the exact motion with the tip a few mm above the paper, from the shoulder, until it passes over both dots. You are rehearsing the joint pattern.</li>
+<li><strong>Execute.</strong> Land the tip on the start dot already moving and draw at ghosting speed, about <b>0.5–1 s for 15 cm</b>. Eyes on the <b>end</b> dot, not the nib. Constant speed and pressure; breathe out.</li>
+<li><strong>Lift off in motion,</strong> through or just past the end dot. Small overshoot at corners (1–3 mm, “architect's crossed corners”) is acceptable; hooks and blobs are not.</li>
+<li><strong>Leave it.</strong> No re-tracing, no patching. Judge it, then draw the next one.</li>
+</ol>
+<dl class="spec"><dt>Speed variable</dt><dd>Too slow: the eye steers, and every correction shows as wobble. Too fast: scatter grows roughly with velocity and you miss the dot (Schmidt's law). The target is the fastest speed that still lands. Falsifiable: draw five lines at ~3 s and five at ~0.7 s. Prediction: the slow set ripples more; the fast set misses endpoints more.</dd>
+<dt>Weight variable</dt><dd>Weight comes from nib size at constant pressure. Hierarchy (after Ching and the Memphis standards, translated to Micron sizes; Memphis uses technical-pen widths, e.g. 0.25 for light lines): 05 for profiles and the nearest edges, 03 for planar corners, 01 for interior and shallow changes, 005 for texture and distance. Ching's “decisive” ends (a slight press at start and finish) are an advanced option, not a blob.</dd>
+<dt>Exception</dt><dd>A deliberately broken or trembling line is a texture (old timber, weathered stone). The rules govern lines meant to be straight.</dd></dl>
+</div>
+
+<div class="phase" id="tq-faults">
+<h3><span style="color:var(--muted)">4</span> Faults: symptom → cause → fix</h3>
+<p class="hint">Tap a sample to see its row (on a phone, swipe the gallery sideways for the right column). Blue dashes are the intended line. Diagnose by symptom; each has one main cause.</p>
+<div class="lab"><div class="cvwrap"><canvas id="faultCv" role="img" aria-label="Eight common line faults drawn side by side"></canvas></div><div class="readout" id="faultOut" aria-live="polite">Tap a sample.</div></div>
+<div class="tbl"><table id="faultTable"><tr><th>Fault</th><th>Symptom</th><th>Cause</th><th>Fix</th></tr><tr data-f="0"><td><b>1. Wobble</b></td><td>Fine ripple along the whole line.</td><td>Slow, visually steered stroke: the eye makes dozens of tiny corrections (and 8–12 Hz tremor shows at very low speed).</td><td>Ghost, then draw faster: about 0.5–1 s for 15 cm. Relax the grip. Look at the end dot, not the nib.</td></tr><tr data-f="1"><td><b>2. Hairy (re-traced)</b></td><td>Furry, doubled edges.</td><td>Going back over a weak line, or building it from short strokes.</td><td>One committed stroke. A missed line stays missed; draw the next one (Ching; Maginnis: “do not patch up a weak line”).</td></tr><tr data-f="2"><td><b>3. Arc / bow</b></td><td>A smooth, consistent curve toward the pivot; worse on longer lines.</td><td>One joint pivots alone (usually a wrist or an elbow planted on the table).</td><td>Lift the elbow, lead from the shoulder, lock the wrist. Rotate the page to your best direction.</td></tr><tr data-f="3"><td><b>4. Overshoot</b></td><td>The line runs well past the dot.</td><td>Speed without a target; not looking at the end dot.</td><td>Watch the end dot during the stroke; slow down 10–20%. A 1–3 mm overshoot at corners is fine.</td></tr><tr data-f="4"><td><b>5. End blobs</b></td><td>Dots at both ends bigger than the line.</td><td>The nib dwells at pen-down or pen-up and ink pools.</td><td>Touch down and lift off while the hand is already moving. (A deliberate darker end, Ching style, is different: small and controlled.)</td></tr><tr data-f="5"><td><b>6. Slowing at the end</b></td><td>Clean start, wobbly finish.</td><td>Fear of overshooting; braking in the last 20%.</td><td>Constant speed through the end dot; let the lift-off happen past it.</td></tr><tr data-f="6"><td><b>7. Hooks</b></td><td>Little ticks at one or both ends.</td><td>A wind-up before the stroke or a flick at lift-off.</td><td>Start with the tip already moving along the ghosted path; follow through in the air after lift-off.</td></tr><tr data-f="7"><td><b>8. Broken / hesitant</b></td><td>A step or gap in the middle.</td><td>Stopping mid-stroke to re-aim.</td><td>Shorter target, or more ghost reps. Never stop inside a stroke; finish it and judge after.</td></tr></table></div>
+</div>
+
+<div class="phase" id="tq-progress">
+<h3><span style="color:var(--muted)">5</span> Progression: where you start, where training gets you</h3>
+<p class="hint">Drag through the weeks. Each row is six simulated 15 cm dot-to-dot lines at that stage's typical numbers.</p>
+<div class="lab"><div class="cvwrap"><canvas id="progCv" role="img" aria-label="Simulated lines at the selected training week"></canvas></div>
+<div class="controls"><label>Stage <input type="range" id="progWk" min="0" max="4" value="0"> <span id="progWkVal"></span></label></div>
+<div class="readout" id="progOut" aria-live="polite"></div></div>
+<div class="tbl"><table id="progTable"><tr><th>Checkpoint</th><th>Max deviation (median of 20)</th><th>Endpoint miss</th><th>Pass rate (≤ 2 mm both)</th><th>Stroke time, 15 cm</th></tr><tr data-k="0"><td><b>Week 0 · baseline</b><br><span class="small">Cognitive: every line takes attention</span></td><td>3–8 mm (or ripple if slow)</td><td>4–10 mm</td><td>0–20%</td><td>2–5 s slow, or a flicked < 0.4 s</td></tr><tr data-k="1"><td><b>Week 2</b><br><span class="small">Cognitive → associative</span></td><td>2.5–4 mm</td><td>3–5 mm</td><td>20–40%</td><td>0.8–1.5 s</td></tr><tr data-k="2"><td><b>Week 4</b><br><span class="small">Associative: errors get consistent</span></td><td>1.5–3 mm</td><td>2–4 mm</td><td>40–60%</td><td>0.6–1.2 s</td></tr><tr data-k="3"><td><b>Week 8</b><br><span class="small">Associative</span></td><td>1–2 mm</td><td>1.5–3 mm</td><td>60–80%</td><td>0.5–1.0 s</td></tr><tr data-k="4"><td><b>Week 12 · trained</b><br><span class="small">Approaching autonomous</span></td><td>≤ 1.5 mm</td><td>≤ 2 mm</td><td>≥ 80% (≥ 70% at random angles)</td><td>0.5–1.0 s; holds while counting backward</td></tr></table></div>
+<p class="small muted"><b>Honesty note:</b> no published study gives millimetre benchmarks for adult novices vs trained people drawing freehand straight lines. These bands are proposals built from the joint geometry above and motor-learning findings, assuming 15–20 min a day, 5–6 days a week. Calibrate them against your own week-0 baseline: the trend matters more than the absolute numbers. Stages after Fitts &amp; Posner (cognitive → associative → autonomous). Autonomy test: count backward by 7s aloud while drawing 10 lines; a pass-rate drop under 10 points means the skill no longer needs your attention.</p>
+<div class="cols2"><div class="box"><h5>Week 0: typical start</h5><ul class="x"><li>Wrist-driven: lines bow toward the hand</li><li>Slow and steered: ripple, especially near the end</li><li>Re-traced “fixes”: hairy lines</li><li>Hooks and blobs at the ends</li><li>Misses the dot by 4–10 mm</li></ul></div>
+<div class="box key"><h5>Week 12: trained</h5><ul class="dot"><li>Shoulder + elbow, wrist quiet</li><li>One stroke in ~0.5–1 s, every time</li><li>≤ 1.5 mm deviation, ≤ 2 mm endpoint miss</li><li>≥ 80% pass, ≥ 70% at random angles</li><li>Holds up when your attention is elsewhere</li></ul></div></div>
+</div>
+
+<div class="phase" id="tq-drills">
+<h3><span style="color:var(--muted)">6</span> Drill ladder</h3>
+<p class="small"><b>Week numbers in this section count from your first Foundation day</b> (curriculum week 1 = Foundation week 3).</p>
+<p class="rule"><span class="k">Rule</span>Advance on the exit test, not the calendar. Do the set amount and move on: “Do not grind” (Drawabox). Half or more of your drawing time stays free drawing (Drawabox's 50% rule).</p>
+<div class="tbl"><table><tr><th>Stage</th><th>When</th><th>Daily load</th><th>Exit test [proposed]</th></tr>
+<tr><td><b>A · Lines</b></td><td>Foundation week 1</td><td>20 min: superimposed, ghosted, long lines (blocked: one length/direction per set)</td><td>Ghosted lines ≥ 60% within 2 mm (a deliberately lower bar than the drill's 70% target); you can feel the shoulder leading</td></tr>
+<tr><td><b>B · Planes &amp; spacing</b></td><td>Foundation week 2</td><td>20 min: ghosted planes, parallel/stop lines, grid connect (now mixed angles)</td><td>Ghosted lines ≥ 70%; parallel spacing within ±1.5 mm. Then start Phase 1</td></tr>
+<tr><td><b>C · Curves &amp; tone</b></td><td>Curriculum weeks 1–6</td><td>10-min warm-up daily; on alternate days one C drill <b>replaces</b> the first 10 min of the curriculum's Drill block (not extra time)</td><td>Ellipse band ≥ 60%; 10-step value scale distinct</td></tr>
+<tr><td><b>D · Lines under load</b></td><td>Curriculum week 7 on</td><td>Warm-up + 250 boxes, 1 page every other day</td><td>Weekly test at the week-8 / week-12 bands above</td></tr></table></div>
+<div class="tbl"><table><tr><th>Stage</th><th>Drill</th><th>Trains</th><th>Setup and procedure</th><th>Amount</th><th>Pass test</th></tr><tr><td><b>A</b></td><td><b>Superimposed lines</b><br><span class="small"><a href="https://www.drawabox.com/lesson/1/4" target="_blank" rel="noopener">Drawabox L1</a></span></td><td>Path consistency, shoulder</td><td>Rule (or freehand) one line 5 cm–full page; trace over it ~8 times, always starting exactly at the start; fraying only at the far end.</td><td>2 pages</td><td>≥ 80% of bundles start within 1 mm and stay ≤ 2 mm wide for the first 80%</td></tr><tr><td><b>A</b></td><td><b>Ghosted lines (point-to-point)</b><br><span class="small"><a href="https://www.drawabox.com/lesson/1/4" target="_blank" rel="noopener">Drawabox L1</a></span></td><td>Endpoint accuracy, plan → ghost → execute</td><td>20–30 dot pairs, 3–15 cm, all angles; rotate page; ghost 3×; one stroke.</td><td>1 page</td><td>≥ 70% end within 2 mm of the dot; 0 re-traced</td></tr><tr><td><b>A</b></td><td><b>Long-line page crossing</b><br><span class="small"><a href="https://www.thedesignsketchbook.com/25cm-straight-lines-without-ruler" target="_blank" rel="noopener">Design Sketchbook</a></span></td><td>Shoulder + elbow coordination</td><td>10 edge-to-edge lines (~25 cm) on letter paper, ghosted; breathe out during the stroke.</td><td>1 page</td><td>Max gap to a straightedge ≤ 2 mm (week 2) → ≤ 1.5 mm (week 6)</td></tr><tr><td><b>B</b></td><td><b>Ghosted planes</b><br><span class="small"><a href="https://www.drawabox.com/lesson/1/4" target="_blank" rel="noopener">Drawabox L1</a></span></td><td>Endpoints, dividing through a center</td><td>4 dots → quadrilateral; ghost each edge; add both diagonals and the center lines to edge midpoints.</td><td>2 pages</td><td>Diagonals cross within 2 mm of the center-line crossing in ≥ 70%</td></tr><tr><td><b>B</b></td><td><b>Parallel / stop lines</b><br><span class="small"><a href="https://www.proko.com/course-lesson/straight-line-discipline-with-peter-han" target="_blank" rel="noopener">Peter Han · Proko</a></span></td><td>Spacing, parallelism, stopping on a mark</td><td>20 parallel horizontals at even spacing; then lines that stop exactly on a ruled stop line.</td><td>3 pages</td><td>Gap between neighbors varies ≤ ±1 mm; stops within 1 mm</td></tr><tr><td><b>B</b></td><td><b>Grid connect</b><br><span class="small"><a href="https://www.studiomatrx.org/students/design-drawing/tools-media-and-warm-ups" target="_blank" rel="noopener">studiomatrx</a></span></td><td>Endpoint accuracy at many angles</td><td>5 × 5 dot grid at 3 cm; connect rows, columns, diagonals.</td><td>1 page</td><td>≥ 70% hit within 1.5 mm</td></tr><tr><td><b>C</b></td><td><b>Tables of ellipses</b><br><span class="small"><a href="https://www.drawabox.com/lesson/1/5" target="_blank" rel="noopener">Drawabox L1</a></span></td><td>Curves from the elbow/shoulder</td><td>Rows of touching ellipses, one degree and tilt per row, drawn through 2–3×.</td><td>2 pages</td><td>Passes stay inside a 1.5 mm band in ≥ 75%; no pointed ends</td></tr><tr><td><b>C</b></td><td><b>Concentric circles</b><br><span class="small"><a href="https://www.studiomatrx.org/students/design-drawing/tools-media-and-warm-ups" target="_blank" rel="noopener">studiomatrx</a></span></td><td>Even curvature, spacing</td><td>Rings growing out from one center.</td><td>½ page daily</td><td>Ring gaps vary ≤ 1.5 mm around the circle</td></tr><tr><td><b>C</b></td><td><b>Hatching boxes</b><br><span class="small"><a href="https://www.studiomatrx.org/students/architectural-graphics-2/rendering-tone-light-and-context" target="_blank" rel="noopener">studiomatrx (adapted)</a></span></td><td>Short-stroke control, stopping on an edge</td><td>3 × 3 cm squares filled at 45° with 01/03/05 at 1, 2, 3 mm spacing; wrist allowed (short marks).</td><td>1 page</td><td>≥ 90% of strokes end within 0.5 mm of the edge; no blobs or hooks</td></tr><tr><td><b>C</b></td><td><b>10-step value scale</b><br><span class="small"><a href="https://www.studiomatrx.org/students/architectural-graphics-2/rendering-tone-light-and-context" target="_blank" rel="noopener">studiomatrx</a></span></td><td>Tone from spacing only</td><td>10 boxes, white → black by spacing/layers; hatching, cross-hatching, scribble, stipple. No pressing harder.</td><td>1 strip per method</td><td>Squint: 10 distinct steps; no two neighbors match</td></tr><tr><td><b>D</b></td><td><b>250 box challenge (paced)</b><br><span class="small"><a href="https://www.drawabox.com/lesson/250boxes/2" target="_blank" rel="noopener">Drawabox</a></span></td><td>Lines under load: convergence, confidence</td><td>5–6 numbered boxes per page; extend lines to check; dated pages. Every other day, alongside Phase 1.</td><td>ongoing</td><td>Trend: % of boxes whose 3 line sets converge rises page over page</td></tr></table></div>
+<p class="small muted">Drill descriptions follow the linked sources. Pass thresholds are this program's proposals unless the source gives one; Drawabox's own approach is “confidence first, accuracy will catch up.” Use your Micron 05 (0.45 mm) for drills and weekly tests, with the Staedtler 0.5 as a spare; Drawabox uses ~0.5. See the <a href="#media-guide">pen guide</a>.</p>
+</div>
+
+<div class="phase" id="tq-warmup">
+<h3><span style="color:var(--muted)">7</span> Daily warm-up (10 min, on printer paper)</h3>
+<ol class="steps">
+<li><strong>2 min · superimposed lines and arcs,</strong> mixed lengths. Wakes up the shoulder.</li>
+<li><strong>2 min · 10 ghosted point-to-point lines,</strong> random angles and lengths (5–20 cm).</li>
+<li><strong>2 min · parallel and stop lines</strong> at even spacing (Peter Han).</li>
+<li><strong>2 min · one row of ellipses or concentric circles.</strong></li>
+<li><strong>2 min · one hatch strip</strong> at 2 mm spacing, 01 pen, stopping on an edge.</li>
+</ol>
+<p class="small">Calibration, not practice: never skip it, never extend it. It replaces the 5-minute warm-up in the <a href="#daily">daily session</a> (take the extra 5 from Drill time).</p>
+</div>
+
+<div class="phase" id="tq-measure">
+<h3><span style="color:var(--muted)">8</span> Measure yourself</h3>
+<dl class="spec">
+<dt>Weekly test</dt><dd>Every Monday, rested, <b>before</b> the warm-up, on printer paper with the same pen every week: 20 lines, 15 cm, dot to dot (pencil dots placed with a ruler). Week 0 is your baseline. After week 2, mix the directions.</dd>
+<dt>Protocol A · ruler</dt><dd>Endpoint miss: ruler from dot to line end. Max deviation: lay a clear ruler along the line's own two ends and read the biggest gap (± 0.5 mm). Note the bow's side (+ toward you / − away). Pass = deviation ≤ 2 mm and endpoint ≤ 2 mm (week 12 target: ≤ 1.5 mm).</dd>
+<dt>Bias vs spread</dt><dd>Same-side bows on most lines = <b>bias</b>: a pivot or posture problem; fix with elbow lift, page rotation. Random sides = <b>spread</b>: a planning or speed problem; fix with more ghosting or 10–20% slower. Track them separately: it's accuracy vs precision.</dd>
+<dt>Feedback rule</dt><dd>On practice days don't measure everything: guess your worst line first, then check only lines that look over ~2 mm. Constant feedback makes you dependent on it.</dd>
+<dt>One ladder</dt><dd>The page uses three bars, on purpose: <b>Foundation gate</b> (end of week 2): ≥ 60% of 15 cm lines within 2 mm. <b>Phase 1 checkpoint</b> (curriculum week 3): the rubric's 1 mm test on 5–10 cm drill lines; shorter lines bow far less (bow grows with length²), so 1 mm there is about as hard as 2 mm on 15 cm. <b>Week 12</b>: the progression table's ≤ 1.5 mm on 15 cm. Until a bar is due, log the trend instead of judging.</dd>
+<dt>Stuck rule</dt><dd>If three weekly tests show no change, change one variable (speed, joint, page rotation, pen) rather than adding volume.</dd>
+</dl>
+<details class="code"><summary><b>Protocol B · phone photo + Python</b> (± 0.2 mm; for the analyst)</summary>
+<p class="small">Photograph the page from directly overhead (a level app helps), about 30 cm away, with a ruler on the page. PX_PER_MM = pixels between the 0 and 100 mm marks ÷ 100. Needs <code>pip install numpy pillow scipy</code>. Validate first: a ruler-drawn line should read ≤ 0.3 mm; that is your noise floor. Tested on synthetic pages (a 1 mm bow reads 0.9–1.0 mm). Limits: crop the ruler out before running (it would count as a line); lines that cross merge into one blob, so keep test lines apart; it measures straightness, not endpoint miss (use the ruler for that). Default pass threshold is 2 mm, matching Protocol A.</p>
+<pre class="script">&quot;&quot;&quot;Measure freehand straight lines from an overhead phone photo.
+usage: python measure_lines.py page.jpg PX_PER_MM [max_dev_mm=2.0]
+Crop the ruler out first; keep lines from crossing; endpoint miss is measured with a ruler.
+PX_PER_MM: photograph a ruler with the page; pixels between the 0 and 100 mm marks / 100.&quot;&quot;&quot;
+import sys, numpy as np
+from PIL import Image
+from scipy import ndimage as ndi
+
+img = np.asarray(Image.open(sys.argv[1]).convert(&#x27;L&#x27;), float)
+pxmm = float(sys.argv[2]); thr_mm = float(sys.argv[3]) if len(sys.argv) &gt; 3 else 2.0
+ink = img &lt; (img.mean() - 2.5 * img.std() if img.std() &gt; 0 else 128)   # dark pixels = ink
+ink = ndi.binary_closing(ink, iterations=2)
+lab, n = ndi.label(ink, structure=np.ones((3, 3)))
+rows = []
+for i in range(1, n + 1):
+    ys, xs = np.nonzero(lab == i)
+    if len(xs) &lt; 30: continue
+    P = np.c_[xs, ys].astype(float); c = P.mean(0)
+    u, s, vt = np.linalg.svd(P - c, full_matrices=False); d, nrm = vt[0], vt[1]
+    if nrm[1] &lt; 0 or (abs(nrm[1]) &lt; 1e-6 and nrm[0] &lt; 0): nrm = -nrm   # + = toward bottom of page (toward you)
+    t = (P - c) @ d; L = (t.max() - t.min()) / pxmm
+    if L &lt; 20: continue                                   # ignore marks &lt; 2 cm (dots, labels)
+    off = (P - c) @ nrm                                   # perpendicular offsets of every ink pixel
+    bins = np.linspace(t.min(), t.max(), 60); idx = np.digitize(t, bins)
+    centre = np.array([off[idx == k].mean() for k in range(1, 61) if np.any(idx == k)])
+    tc = np.array([t[idx == k].mean() for k in range(1, 61) if np.any(idx == k)])
+    chord = np.interp(tc, [tc[0], tc[-1]], [centre[0], centre[-1]])   # line between its own ends
+    dev = (centre - chord) / pxmm
+    q = np.polyfit(tc, centre, 2); wob = np.sqrt(np.mean((centre - np.polyval(q, tc)) ** 2)) / pxmm
+    rows.append((c[1], L, np.abs(dev).max(), dev[len(dev) // 2], wob))
+print(f&quot;{&#x27;#&#x27;:&gt;3} {&#x27;length&#x27;:&gt;8} {&#x27;max dev&#x27;:&gt;8} {&#x27;bow@mid&#x27;:&gt;8} {&#x27;wobble&#x27;:&gt;7}  result&quot;)
+for k, (_, L, dm, bow, w) in enumerate(sorted(rows), 1):   # top of page first
+    print(f&quot;{k:&gt;3} {L:7.1f}mm {dm:7.2f}mm {bow:+7.2f}mm {w:6.2f}mm  {&#x27;PASS&#x27; if dm &lt;= thr_mm else &#x27;fail&#x27;}&quot;)
+if rows:
+    dm = np.array([r[2] for r in rows]); b = np.array([r[3] for r in rows])
+    print(f&quot;\n{len(rows)} lines | median max dev {np.median(dm):.2f} mm | pass rate {np.mean(dm &lt;= thr_mm):.0%} (≤{thr_mm} mm)&quot;
+          f&quot; | bow bias {b.mean():+.2f} mm, spread σ {b.std():.2f} mm&quot;)
+</pre>
+<p class="small">Log the summary line weekly. Plot the pass rate and the bow bias over time: bias should shrink faster than spread once posture is fixed.</p></details>
+</div>
+
+<div class="phase" id="tq-science">
+<h3><span style="color:var(--muted)">9</span> Why this works</h3>
+<div class="tbl"><table><tr><th>Principle</th><th>Evidence</th><th>What you do</th><th>Source</th></tr><tr><td><b>Speed–accuracy (Fitts; Schmidt)</b></td><td>Aiming error grows with speed; for fast strokes the scatter grows roughly in proportion to velocity (Schmidt et al. 1979).</td><td>Find the fastest speed that still lands; train speed and accuracy together, never accuracy by crawling.</td><td class="small"><a href="https://us.humankinetics.com/blogs/excerpt/understanding-fitts-law" target="_blank" rel="noopener">Human Kinetics</a></td></tr><tr><td><b>Two-phase aiming (Woodworth; Elliott et al. 2001)</b></td><td>An aimed move is a planned ballistic impulse plus slow visual homing. The homing phase is a chain of micro-corrections.</td><td>Wobble is the homing phase made visible. Ghosting perfects the plan so the stroke can be ballistic.</td><td class="small"><a href="https://experts.mcmaster.ca/display/publication245527" target="_blank" rel="noopener">Elliott et al.</a></td></tr><tr><td><b>Proximal joints carry size (Lacquaniti et al. 1987)</b></td><td>As drawings get bigger, shoulder and elbow rotation grows while wrist and finger motion stays small and does not grow with size.</td><td>Shoulder + elbow drive; wrist and fingers fine-tune. “Locked wrist” = not rotating through the stroke, not rigid.</td><td class="small"><a href="https://scilit.com/publications/2390ab4746b027d6b6f6ad427070d680" target="_blank" rel="noopener">J. Neurosci. abstract</a></td></tr><tr><td><b>Support reduces tremor (surgery)</b></td><td>Resting the wrist cut hand tremor 2.7× (Coulson 2010); armrest cut tool tremor from 1.21 to 0.36 mm (Hara 2015).</td><td>Anchor the heel of the hand for short marks; for long lines glide, never plant (a planted joint becomes a pivot).</td><td class="small"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4628178" target="_blank" rel="noopener">Hara et al.</a></td></tr><tr><td><b>Blocked → random practice (Shea & Morgan 1979)</b></td><td>Blocked practice looks better during training; mixed practice retains and transfers better (Shea &amp; Morgan). Later work suggests beginners benefit less from mixing (Guadagnoli &amp; Lee 2004).</td><td>Weeks 0–2 blocked (one length, one direction per set). After that, mix angle, length and page rotation.</td><td class="small"><a href="https://www.gwern.net/doc/psychology/spaced-repetition/1979-shea.pdf" target="_blank" rel="noopener">Shea & Morgan</a></td></tr><tr><td><b>Distributed practice (Lee & Genovese 1988)</b></td><td>Spaced sessions beat one long session for learning.</td><td>2 × 30 min beats 1 × 60 min. Do the warm-up daily rather than a weekend marathon.</td><td class="small"><a href="https://www.gwern.net/docs/www/uweb.cas.usf.edu/f1052ecdd92f0ecc3f57bdd890a4a6558483ec45.pdf" target="_blank" rel="noopener">Lee & Genovese</a></td></tr><tr><td><b>Sleep consolidation (Walker et al. 2002)</b></td><td>A finger-sequence skill improved ~20% after a night of sleep and not across the same time awake (sequence task, transferred here); later studies (e.g., Rickard et al. 2008) found much of that gain was an artifact of fatigue and test scheduling.</td><td>Test on Monday mornings before warming up; judge progress by rested scores.</td><td class="small"><a href="https://walkerlab.berkeley.edu/reprints/Walker%20et%20al._Neuron_2002.pdf" target="_blank" rel="noopener">Walker et al.</a></td></tr><tr><td><b>Feedback dosing (Winstein & Schmidt 1990; Sherwood 1988)</b></td><td>Feedback on every trial creates dependence; feedback only outside a tolerance band builds consistency.</td><td>Don’t measure every line. Self-estimate first, then check only lines that look worse than ~2 mm.</td><td class="small"></td></tr><tr><td><b>Deliberate practice (Ericsson et al. 1993)</b></td><td>Gains come from goal-directed, measured practice just beyond current ability; later meta-analyses show the effect is real but smaller than first claimed.</td><td>“5 pages of lines” is volume; “20 measured lines, change one variable” is practice.</td><td class="small"><a href="https://www.ida.liu.se/~nilda/Anders_Ericsson/Ericsson_delib_pract.pdf" target="_blank" rel="noopener">Ericsson et al.</a></td></tr></table></div>
+<p class="small muted">Most of this research is on aiming, handwriting, surgery and finger-sequence tasks, and is transferred to drawing here; treat it as strong guidance rather than proof for pen lines specifically.</p>
+</div>
+
+<div class="phase" id="tq-examples">
+<h3><span style="color:var(--muted)">10</span> Real-world examples</h3>
+<p class="small">Study how trained line looks: single strokes, consistent weight, confident ends. For before/after, the numbered Drawabox 250-box submissions are the clearest public record.</p>
+<ul class="reflist"><li><a href="https://www.slideshare.net/slideshow/architectural-graphics-fourth-edition-architectural-graphics/259647526" target="_blank" rel="noopener"><b>Francis D.K. Ching</b></a><span><i>Architectural Graphics</i>: the reference for line quality and line-weight hierarchy (“Drafted lines should have a taut quality, as if stretched tightly between two points”).</span></li><li><a href="https://www.gutenberg.org/cache/epub/17502/pg17502-images.html" target="_blank" rel="noopener"><b>Charles Maginnis, <i>Pen Drawing</i> (1898)</b></a><span>Free on Project Gutenberg; includes an architectural chapter. “Do not patch up a weak line.”</span></li><li><a href="https://mymodernmet.com/perspective-drawings-paul-heaston" target="_blank" rel="noopener"><b>Paul Heaston</b></a><span>Dense pen-and-ink interiors, wide-angle perspective; every line single-stroke.</span></li><li><a href="https://www.lizsteel.com/?p=19584" target="_blank" rel="noopener"><b>Liz Steel</b></a><span>Urban sketching with “architect’s crossed corners”: overshoot by design for speed and confidence.</span></li><li><a href="https://www.illustrationx.com/artists/LiamOFarrell/107605" target="_blank" rel="noopener"><b>Liam O’Farrell</b></a><span>Ink and wash London architecture; confident long lines with loose tone.</span></li><li><a href="https://www.proko.com/course-lesson/straight-line-discipline-with-peter-han" target="_blank" rel="noopener"><b>Peter Han · Straight Line Discipline</b></a><span>Video lesson: lines, arcs, waves, stop lines; students use it as a short daily warm-up.</span></li><li><a href="https://www.drawabox.com/lesson/1" target="_blank" rel="noopener"><b>Drawabox Lesson 1</b></a><span>Free; the shoulder, the ghosting method, and the lines/ellipses/boxes exercises this ladder borrows.</span></li><li><a href="https://drawabox.com/community/submission/QT2WWNFO/" target="_blank" rel="noopener"><b>Drawabox 250 box challenges</b></a><span>The closest public “before → after”: boxes are numbered in order, so you can watch lines tighten from box 1 to 250.</span></li><li><a href="https://thedesignsketchbook.com/be-a-pro-at-connect-the-dots" target="_blank" rel="noopener"><b>The Design Sketchbook</b></a><span>Connect-the-dots and 25 cm freehand lines, with the edge-of-paper check.</span></li><li><a href="https://memphis.edu/architecture/docs/drawing.standards.pdf" target="_blank" rel="noopener"><b>Memphis architecture drawing standards</b></a><span>Line-weight table used in an architecture school.</span></li></ul>
+</div>
+
+<article class="sheet" id="lesson-technique">
+<header class="sheet-head"><div><p class="eyebrow">Foundation · Lesson sheet</p><h4 class="sheet-title">Line <span class="acc">Technique</span></h4><p class="sheet-sub">Shoulder and elbow together, wrist quiet, planned before the pen lands.</p><div class="flourish" aria-hidden="true"></div></div><span class="sheet-num" aria-hidden="true">F</span></header>
+<div class="modes" role="tablist" aria-label="Lesson mode"><button role="tab" data-mode="explain" aria-selected="true" tabindex="0"><span class="mn">1</span>Explain</button><button role="tab" data-mode="demo" aria-selected="false" tabindex="-1"><span class="mn">2</span>Demo</button><button role="tab" data-mode="do" aria-selected="false" tabindex="-1"><span class="mn">3</span>Do</button></div>
+<div class="mode-panel" data-panel="explain">
+<div class="sheet-body">
+<div class="sheet-top"><div class="box key "><h5><span class="ic ic-bulb"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1.5a3.6 3.6 0 0 0-2.2 6.5V9.6h4.4V8A3.6 3.6 0 0 0 7 1.5zM5.3 11.6h3.4"/></svg></span>Key idea</h5><p>Any one joint draws an arc. A straight line is two joints cancelling each other's arcs, rehearsed (ghosted) and then executed as one fast, committed stroke. Practice the motion, not the line.</p></div><figure class="fig"><svg viewBox="0 0 640 250" role="img" aria-label="A 15 cm stroke drawn by one joint bows: wrist 20 mm, elbow 7 mm, shoulder 4 mm; shoulder and elbow together draw it straight" xmlns="http://www.w3.org/2000/svg" font-family="Outfit,Helvetica,Arial,sans-serif"><text x="70" y="28" font-size="11" font-weight="700" letter-spacing="1.5" fill="#111111">WRIST ONLY · r ≈ 15 cm</text><line x1="70" y1="48" x2="570" y2="48" stroke="#1f5fa8" stroke-dasharray="3 4" stroke-width="1"/><polyline points="70.0,48.0 82.5,44.4 95.0,41.0 107.5,37.8 120.0,34.7 132.5,31.9 145.0,29.2 157.5,26.7 170.0,24.4 182.5,22.3 195.0,20.4 207.5,18.6 220.0,17.1 232.5,15.7 245.0,14.5 257.5,13.5 270.0,12.6 282.5,12.0 295.0,11.5 307.5,11.2 320.0,11.2 332.5,11.2 345.0,11.5 357.5,12.0 370.0,12.6 382.5,13.5 395.0,14.5 407.5,15.7 420.0,17.1 432.5,18.6 445.0,20.4 457.5,22.3 470.0,24.4 482.5,26.7 495.0,29.2 507.5,31.9 520.0,34.7 532.5,37.8 545.0,41.0 557.5,44.4 570.0,48.0" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round"/><text x="580" y="44" font-size="12" font-weight="700" fill="#111111">20 mm</text><text x="70" y="84" font-size="11" font-weight="700" letter-spacing="1.5" fill="#111111">ELBOW ONLY · r ≈ 40 cm</text><line x1="70" y1="104" x2="570" y2="104" stroke="#1f5fa8" stroke-dasharray="3 4" stroke-width="1"/><polyline points="70.0,104.0 82.5,102.7 95.0,101.5 107.5,100.4 120.0,99.3 132.5,98.3 145.0,97.4 157.5,96.5 170.0,95.7 182.5,94.9 195.0,94.2 207.5,93.6 220.0,93.1 232.5,92.6 245.0,92.2 257.5,91.8 270.0,91.5 282.5,91.3 295.0,91.1 307.5,91.0 320.0,91.0 332.5,91.0 345.0,91.1 357.5,91.3 370.0,91.5 382.5,91.8 395.0,92.2 407.5,92.6 420.0,93.1 432.5,93.6 445.0,94.2 457.5,94.9 470.0,95.7 482.5,96.5 495.0,97.4 507.5,98.3 520.0,99.3 532.5,100.4 545.0,101.5 557.5,102.7 570.0,104.0" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round"/><text x="580" y="100" font-size="12" font-weight="700" fill="#111111">7 mm</text><text x="70" y="140" font-size="11" font-weight="700" letter-spacing="1.5" fill="#111111">SHOULDER ONLY · ARM STRAIGHT · r ≈ 70 cm</text><line x1="70" y1="160" x2="570" y2="160" stroke="#1f5fa8" stroke-dasharray="3 4" stroke-width="1"/><polyline points="70.0,160.0 82.5,159.3 95.0,158.6 107.5,158.0 120.0,157.3 132.5,156.8 145.0,156.2 157.5,155.7 170.0,155.3 182.5,154.8 195.0,154.5 207.5,154.1 220.0,153.8 232.5,153.5 245.0,153.3 257.5,153.1 270.0,152.9 282.5,152.8 295.0,152.7 307.5,152.6 320.0,152.6 332.5,152.6 345.0,152.7 357.5,152.8 370.0,152.9 382.5,153.1 395.0,153.3 407.5,153.5 420.0,153.8 432.5,154.1 445.0,154.5 457.5,154.8 470.0,155.3 482.5,155.7 495.0,156.2 507.5,156.8 520.0,157.3 532.5,158.0 545.0,158.6 557.5,159.3 570.0,160.0" fill="none" stroke="#111111" stroke-width="2.2" stroke-linecap="round"/><text x="580" y="156" font-size="12" font-weight="700" fill="#111111">4 mm</text><text x="70" y="196" font-size="11" font-weight="700" letter-spacing="1.5" fill="#111111">SHOULDER + ELBOW TOGETHER</text><line x1="70" y1="216" x2="570" y2="216" stroke="#1f5fa8" stroke-dasharray="3 4" stroke-width="1"/><line x1="70" y1="216" x2="570" y2="216" stroke="#111111" stroke-width="2.4" stroke-linecap="round"/><text x="580" y="220" font-size="12" font-weight="700" fill="#1f5fa8">≈ 0 ✓</text><text x="70" y="244" font-size="10" fill="#5c5c5a">Bow of a 15 cm stroke = r − √(r² − 7.5²). Drawn at about half scale vertically.</text></svg><figcaption>One joint vs two: the bow of a 15 cm stroke</figcaption></figure></div>
+<div class="cols"><div class="box how"><h5><span class="ic ic-list"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3.5h6.5M5 7h6.5M5 10.5h6.5M2.5 3.5h.01M2.5 7h.01M2.5 10.5h.01"/></svg></span>How it works</h5><ol><li>Elbow off the table; page rotated to your best direction.</li><li>Dot both ends.</li><li>Ghost 3× from the shoulder.</li><li>Land moving, eyes on the end dot, 0.5–1 s.</li><li>Lift off past the dot. Never re-trace.</li></ol></div>
+<div class="box mistakes"><h5><span class="ic ic-x"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 3.5l7 7M10.5 3.5l-7 7"/></svg></span>Common mistakes</h5><ul class="x"><li>Wrist driving long lines: bow</li><li>Slow, steered stroke: ripple</li><li>Re-tracing a miss: hair</li><li>Braking near the end: wobbly tail</li><li>Pressing for weight: wide line, crushed nib</li></ul></div></div>
+<div class="cols"><div class="box practice"><h5><span class="ic ic-pencil"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 11.5l1-3.2 6-6 2.2 2.2-6 6zM8.3 3.5l2.2 2.2"/></svg></span>Practice</h5><ul class="dot"><li>Week 1: superimposed, ghosted, long lines</li><li>Week 2: planes, parallels, grid connect</li><li>Then a 10-min warm-up, forever</li></ul></div>
+<div class="box review"><h5><span class="ic ic-check"><svg viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7.3l3 3 6-6.6"/></svg></span>Test</h5><ul class="dot"><li>20 lines × 15 cm, Mondays</li><li>Pass: ≤ 2 mm deviation and ≤ 2 mm endpoint miss</li><li>Target: ≥ 80% by week 12</li></ul></div></div>
+</div>
+<p class="remember"><b>Remember</b><q>One joint draws an arc. Two joints, rehearsed, draw a line.</q></p>
+</div>
+<div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
+<div class="mode-panel" data-panel="do" hidden><div class="do" data-min="20" data-title="Foundation day: superimposed, ghosted and long lines" data-sub="Line">
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Foundation day: superimposed, ghosted and long lines</h5><p class="do-meta">20 min · trains Line · pen + paper</p></div>
+<div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
+<div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Printer paper and your Micron 05 (Staedtler 0.5 as a spare). Elbow off the table.</li><li>Superimposed lines, 6 min: one line, traced over 8 times, always from the same start.</li><li>Ghosted lines, 8 min: 15 dot pairs (a Foundation-day amount; the full drill is 20–30), 3–15 cm, rotate the page, ghost 3×, one stroke.</li><li>Long lines, 4 min: 5 edge-to-edge lines (Foundation-day amount) from the shoulder, breathing out.</li><li>Pads below (optional, 2 min): a quick check of endpoint, long-line and parallel control.</li></ol></div>
+<div class="box pass"><h5>Pass test</h5><p>Ghosted lines: ≥ 60% end within 2 mm of the dot (Stage A exit), 0 re-traced. Long lines: max gap to a ruler ≤ 2 mm. Superimposed bundles fray only at the far end.</p></div>
+<div class="box dobox"><h5>Time box</h5><div class="dt" aria-live="off">20:00</div><div class="controls"><button data-dt="start">Start</button><button class="ghost" data-dt="reset">Reset</button><button class="ghost" data-log>Log this session</button></div></div></div></div>
+<div class="lab pad" data-pad="line"><h5 class="padh">Practice pad · point-to-point</h5><p class="small">Draw with a finger, stylus or mouse. Warm-up only: the paper drawing above is the real exercise.</p><div class="cvwrap"><canvas class="pad-cv" aria-label="Drawing pad"></canvas></div><div class="controls"><button data-pad-act="score">Score →</button><button class="ghost" data-pad-act="clear">Clear</button><button class="ghost" data-pad-act="new">New targets</button></div><div class="readout pad-out" aria-live="polite"></div></div><div class="lab pad" data-pad="long"><h5 class="padh">Practice pad · one long line</h5><p class="small">Draw with a finger, stylus or mouse. Warm-up only: the paper drawing above is the real exercise.</p><div class="cvwrap"><canvas class="pad-cv" aria-label="Drawing pad"></canvas></div><div class="controls"><button data-pad-act="score">Score →</button><button class="ghost" data-pad-act="clear">Clear</button><button class="ghost" data-pad-act="new">New targets</button></div><div class="readout pad-out" aria-live="polite"></div></div><div class="lab pad" data-pad="parallel"><h5 class="padh">Practice pad · parallel hatching</h5><p class="small">Draw with a finger, stylus or mouse. Warm-up only: the paper drawing above is the real exercise.</p><div class="cvwrap"><canvas class="pad-cv" aria-label="Drawing pad"></canvas></div><div class="controls"><button data-pad-act="score">Score →</button><button class="ghost" data-pad-act="clear">Clear</button><button class="ghost" data-pad-act="new">New targets</button></div><div class="readout pad-out" aria-live="polite"></div></div></div></div>
+</article>
 </section>
 
 <!-- MODEL -->
@@ -482,7 +730,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="25" data-title="One box, full pipeline" data-sub="">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">One box, full pipeline</h5><p class="do-meta">25 min · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">One box, full pipeline</h5><p class="do-meta">25 min · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Pick a real box-shaped object (shoe box, book stack). Observe 1 min, no pen.</li><li>Thumbnail 5 × 7 cm: horizon, corner facing you, focal point.</li><li>Pencil block-in: horizon, 2 VPs (can sit off the page), box.</li><li>Ink silhouette in 05, inner edges in 01. One pass each.</li><li>Hatch the shadow side. Stop at 25 min.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Tomorrow, extend 3 receding edges with a ruler: each pair meets within 5 mm of its VP. Rubric score ≥ 3 on Structure.</p></div>
@@ -532,13 +780,14 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 <h2>12-week curriculum</h2>
 <p>Four phases of three weeks. Each week = 5 weekday sessions of 45 min + a Sunday master copy (6 sessions, about 4.5 hours). Every phase is specified the same way: rule, variables, exceptions, drills, a falsifiable prediction, and a checkpoint. Advance only when the checkpoint passes the rubric for the subsystems trained so far; if it fails, follow the <a href="#failed-checkpoint">failed-checkpoint rule</a> in Verification.</p>
 <p class="small"><b>Sequencing:</b> weeks 1–6 Apply pieces (and the week 6 house) are flat elevations; perspective arrives in week 7. From week 3, mark one focal point on every Apply piece; it isn't scored until Phase 4. Expect to pass the checkpoints, not to be fluent: 12 weeks is about 54 hours, so plan a second cycle.</p>
-<div class="lesson-index"><span class="caps">Lesson sheets</span><a href="#lesson-pipeline">00 Drawing pipeline</a><a href="#lesson-line">01 Line control</a><a href="#lesson-texture">02 Texture</a><a href="#lesson-combine">03 Combining textures</a><a href="#lesson-3pt">04 Looking up + down</a><a href="#lesson-ornament">05 Ornament</a><a href="#lesson-concept">06 Concept sketches</a><a href="#lesson-people">07 People</a><a href="#lesson-schools">08 Schools</a><a href="#lesson-techniques">09 Techniques</a></div>
+<div class="lesson-index"><span class="caps">Lesson sheets</span><a href="#lesson-technique">F Line technique</a><a href="#lesson-pipeline">00 Drawing pipeline</a><a href="#lesson-line">01 Line control</a><a href="#lesson-texture">02 Texture</a><a href="#lesson-combine">03 Combining textures</a><a href="#lesson-3pt">04 Looking up + down</a><a href="#lesson-ornament">05 Ornament</a><a href="#lesson-concept">06 Concept sketches</a><a href="#lesson-people">07 People</a><a href="#lesson-schools">08 Schools</a><a href="#lesson-techniques">09 Techniques</a></div>
 
 <div class="phase">
 <h3><span style="color:var(--muted)">01</span> Line control <span class="tag">weeks 1–3</span></h3>
+<p class="small"><b>Prerequisite:</b> the two Foundation weeks of <a href="#technique">Line technique</a> (stages A–B). This phase applies that motor pattern to curves, weight and spacing.</p>
 <dl class="spec">
-<dt>Rule</dt><dd>Straightness = speed × a locked joint, up to a ceiling. Hesitation shows up as wobble; re-tracing shows up as hair; too much speed shows up as overshoot. Use the fastest stroke that still lands on the endpoint.</dd>
-<dt>Variables</dt><dd>Stroke speed, which joint moves (wrist for short, elbow for medium, shoulder for long), number of ghost reps, nib (use 01 for drills).</dd>
+<dt>Rule</dt><dd>Straightness = speed × the right joints (shoulder + elbow together for lines over ~3.5 cm, wrist only for shorter marks; see <a href="#tq-joints">Line technique</a>), up to a ceiling. Hesitation shows up as wobble; re-tracing shows up as hair; too much speed shows up as overshoot. Use the fastest stroke that still lands on the endpoint.</dd>
+<dt>Variables</dt><dd>Stroke speed, which joints move (wrist only for marks ≤ 3.5 cm; shoulder + elbow together for anything longer), number of ghost reps, nib (any 01–05 for drills; keep the same one for weekly tests).</dd>
 <dt>Exception</dt><dd>A deliberately slow, broken line is a valid texture (old wood, weathered stone). The rule governs lines meant to be straight.</dd>
 </dl>
 
@@ -569,10 +818,10 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="15" data-title="25 point-to-point lines" data-sub="Line">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">25 point-to-point lines</h5><p class="do-meta">15 min · trains Line · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">25 point-to-point lines</h5><p class="do-meta">15 min · trains Line · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
-<div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Fill a page with 25 pairs of dots, 5–15 cm apart, all angles.</li><li>Turn the page to your natural stroke direction.</li><li>Ghost 3 times, then commit at full speed. No re-trace.</li><li>Use the pad below for a quick warm-up: it measures wobble and endpoint miss.</li></ol></div>
-<div class="box pass"><h5>Pass test</h5><p>On paper: ≥ 20 of 25 lines end within 1 mm of the dot with no visible wobble (ruler check). On the pad: 4 of 4 at screen standard.</p></div>
+<div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Printer paper. Fill a page with 25 pairs of dots, 5–10 cm apart, all angles.</li><li>Turn the page to your natural stroke direction.</li><li>Ghost 3 times, then commit at full speed. No re-trace.</li><li>Use the pad below for a quick warm-up: it measures wobble and endpoint miss.</li></ol></div>
+<div class="box pass"><h5>Pass test</h5><p>Week 1 of Phase 1: ≥ 15 of 25 within 2 mm. By the Phase 1 checkpoint: ≥ 20 of 25 within 1 mm of the dot, no visible wobble (ruler check). On the pad: 4 of 4 at screen standard.</p></div>
 <div class="box dobox"><h5>Time box</h5><div class="dt" aria-live="off">15:00</div><div class="controls"><button data-dt="start">Start</button><button class="ghost" data-dt="reset">Reset</button><button class="ghost" data-log>Log this session</button></div></div></div></div>
 <div class="lab pad" data-pad="line"><h5 class="padh">Practice pad · point-to-point</h5><p class="small">Draw with a finger, stylus or mouse. Warm-up only: the paper drawing above is the real exercise.</p><div class="cvwrap"><canvas class="pad-cv" aria-label="Drawing pad"></canvas></div><div class="controls"><button data-pad-act="score">Score →</button><button class="ghost" data-pad-act="clear">Clear</button><button class="ghost" data-pad-act="new">New targets</button></div><div class="readout pad-out" aria-live="polite"></div></div></div></div>
 </article>
@@ -657,7 +906,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="20" data-title="Brick swatch fading from a focal corner" data-sub="Value">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Brick swatch fading from a focal corner</h5><p class="do-meta">20 min · trains Value · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Brick swatch fading from a focal corner</h5><p class="do-meta">20 min · trains Value · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Draw an 8 × 5 cm wall outline in pencil. Mark one focal corner.</li><li>One light hatch layer for overall value.</li><li>Courses full at the focal corner, fading to nothing by the far edge.</li><li>Joints only near the focal corner. Dark band under the cornice.</li><li>Warm up on the pad: match the target tone by spacing, not pressure.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Squint test: someone glancing reads light-to-dark first and &quot;brick&quot; second. ≤ 40% of the wall has full texture. Pad: within 8 points of target.</p></div>
@@ -676,7 +925,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="40" data-title="Four-material cottage in four stages" data-sub="Value">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Four-material cottage in four stages</h5><p class="do-meta">40 min · trains Value · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Four-material cottage in four stages</h5><p class="do-meta">40 min · trains Value · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="do-ref do-ref-svg"></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Copy the reference outline in 05/03 (or use a real building).</li><li>Pencil material zones; circle the dominant material.</li><li>Texture the dominant material first, densest at the focal point.</li><li>Secondary materials get half the density. Glass dark with one white streak.</li><li>Tone last: eave shadow, door recess, one cast shadow.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Squint: the 3 value bands (light / mid / dark) are each readable. Dominant material covers the most area; no two materials have equal texture density.</p></div>
@@ -728,7 +977,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="25" data-title="A tower, looking up" data-sub="Structure">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">A tower, looking up</h5><p class="do-meta">25 min · trains Structure · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">A tower, looking up</h5><p class="do-meta">25 min · trains Structure · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Horizon in the bottom quarter of the page. Two side VPs wide apart.</li><li>VVP high above (can be off the page: use a tape mark on the table).</li><li>Nearest vertical first, aimed at the VVP. Then the rest.</li><li>Add 3 floors of windows: horizontals to the side VPs.</li><li>Pad warm-up: extend the three verticals so they meet.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Extend 3 verticals with a ruler: they meet within 1 cm of each other. Pad: spread ≤ 2% of the width.</p></div>
@@ -747,7 +996,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="30" data-title="A capital in four passes" data-sub="Structure">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">A capital in four passes</h5><p class="do-meta">30 min · trains Structure · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">A capital in four passes</h5><p class="do-meta">30 min · trains Structure · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="do-ref do-ref-svg"></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Pencil envelope: top block and shaft as boxes.</li><li>Center axis, then circles where the volutes sit.</li><li>Ink only where the surface turns: spirals, the band, flutes.</li><li>Hatch undersides and the shaft&#x27;s shadow side.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Fold the page on the axis (or mirror a photo): the two volutes match within 3 mm. Undersides are the darkest value.</p></div>
@@ -796,7 +1045,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="10" data-title="Concept sprint: 5 ideas in 10 minutes" data-sub="Selection">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Concept sprint: 5 ideas in 10 minutes</h5><p class="do-meta">10 min · trains Selection · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Concept sprint: 5 ideas in 10 minutes</h5><p class="do-meta">10 min · trains Selection · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Brief: a small cabin with one big window. Set a 10-minute timer.</li><li>Each idea: elevation scribble → 2-point box → roof → hatch one side.</li><li>2 minutes max per idea. Never fix; start the next one.</li><li>At the end, circle the best one and write why in 5 words.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>5 distinct ideas (different massing, not just different windows), each readable as 3D, in ≤ 10 minutes.</p></div>
@@ -817,7 +1066,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="25" data-title="A street with five people" data-sub="Structure">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">A street with five people</h5><p class="do-meta">25 min · trains Structure · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">A street with five people</h5><p class="do-meta">25 min · trains Structure · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Sit or stand on a real street (or use a photo taken at eye height).</li><li>Draw the horizon first: it is your eye level.</li><li>Ground lines from the VP, then 5 people at different distances.</li><li>Every standing adult: eyes on the horizon, only size changes.</li><li>Overlap at least two figures.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Ruler along the horizon crosses every standing adult&#x27;s eyes within 2 mm. Sizes shrink toward the VP.</p></div>
@@ -862,7 +1111,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="45" data-title="Sunday master copy" data-sub="">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Sunday master copy</h5><p class="do-meta">45 min · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">Sunday master copy</h5><p class="do-meta">45 min · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Pick one school from the matrix; find one drawing by that school (Resources).</li><li>Before copying, write down your 5 dial guesses.</li><li>Copy at the same size, 30 min. Reverse-engineer the decisions.</li><li>Log the dial that surprised you most.</li><li>Write one setting to borrow this week.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Predictions written before copying; one &quot;surprise&quot; dial logged; the borrowed setting appears in at least one drawing this week.</p></div>
@@ -885,7 +1134,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 </div>
 <div class="mode-panel" data-panel="demo" hidden><div class="demo"><div class="demo-svg"></div><div class="cvwrap demo-cv-wrap"><canvas class="demo-cv" aria-label="Step-by-step demonstration"></canvas></div><div class="demo-cap" aria-live="polite"></div><div class="controls"><button class="ghost" data-act="prev">← Prev</button><button data-act="play">Play ▶</button><button class="ghost" data-act="next">Next →</button><span class="demo-count"></span></div></div></div>
 <div class="mode-panel" data-panel="do" hidden><div class="do" data-min="30" data-title="One box, three techniques" data-sub="Value">
-<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">One box, three techniques</h5><p class="do-meta">30 min · trains Value · pen + sketchbook</p></div>
+<div class="do-head"><p class="eyebrow">Do · Draw this</p><h5 class="do-title">One box, three techniques</h5><p class="do-meta">30 min · trains Value · pen + paper</p></div>
 <div class="do-grid"><figure class="fig do-fig"><div class="cvwrap"><canvas class="do-ref-cv" aria-label="Reference: what the finished drawing looks like"></canvas></div><figcaption>Target: what the finished drawing should look like.</figcaption></figure>
 <div class="do-side"><div class="box how"><h5>Steps</h5><ol><li>Draw the same 4 cm box three times.</li><li>Shade the dark side of #1 with parallel hatching, #2 with cross-hatch, #3 with stipple.</li><li>Aim for the same mid-gray on all three.</li><li>Time each one; write the minutes under it.</li></ol></div>
 <div class="box pass"><h5>Pass test</h5><p>Squint: all three dark sides read as the same value. Note which was fastest for that value: that&#x27;s your default technique.</p></div>
@@ -901,12 +1150,12 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 <p class="rule"><span class="k">Rule</span>Every weekday session runs the same 45-minute pipeline; only the inputs change by week. Fixed structure removes the daily decision of what to practice.</p>
 <div class="pipeline" id="pipe">
   <div class="fill" id="pipeFill"></div>
-  <div style="flex:5">Warm-up 5</div><div style="flex:20">Drill 20</div><div style="flex:15">Apply 15</div><div style="flex:5">Log 5</div>
+  <div style="flex:10">Warm-up 10</div><div style="flex:15">Drill 15</div><div style="flex:15">Apply 15</div><div style="flex:5">Log 5</div>
 </div>
 <div class="timer"><button id="tStart">Start session timer →</button><button class="ghost" id="tReset">Reset</button><span id="tLabel" aria-live="polite">45:00 · ready</span></div>
 <ol class="steps">
-<li><strong>Warm-up, 5 min</strong> — one page of straight lines and ellipses on printer paper. Calibration, not practice; never skip it.</li>
-<li><strong>Drill, 20 min</strong> — the current week's drill, on printer paper.</li>
+<li><strong>Warm-up, 10 min</strong> — the <a href="#tq-warmup">technique warm-up</a> on printer paper. Calibration, not practice; never skip it.</li>
+<li><strong>Drill, 15 min</strong> — the current week's drill, on printer paper.</li>
 <li><strong>Apply, 15 min</strong> — use the drill in a small sketchbook piece (a mug, a window, a doorway).</li>
 <li><strong>Log, 5 min</strong> — date the page and add one row to the practice log below.</li>
 </ol>
@@ -943,7 +1192,7 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 <h3>Rubric</h3>
 <div class="tbl"><table>
 <tr><th>Subsystem</th><th>1 — not yet</th><th>2 — passing</th><th>3 — strong</th><th>Measurement</th></tr>
-<tr><td>Line</td><td>Re-traced strokes, or over the passing limit</td><td>No re-traces. Drill page: at most 10 of 50 lines off by &gt;1 mm. Applied piece: at most 2 of its 10 longest straight lines</td><td>Drill page: at most 3 of 50. Applied piece: 0 of 10, plus a deliberate nib hierarchy</td><td>Ruler laid on each line's endpoints; a miss is a gap over 1 mm</td></tr>
+<tr><td>Line</td><td>Re-traced strokes, or over the passing limit</td><td>No re-traces. Drill page: at most 10 of 50 lines off by &gt;1 mm. Applied piece: at most 2 of its 10 longest straight lines</td><td>Drill page: at most 3 of 50. Applied piece: 0 of 10, plus a deliberate nib hierarchy</td><td>Ruler laid on each line's endpoints (drill lines 5–10 cm); a miss is a gap over 1 mm</td></tr>
 <tr><td>Value</td><td>3 or fewer tones, or muddy patches</td><td>4–5 distinct tones</td><td>6 clean tones from white to near-black</td><td>Grayscale phone photo; match each area to your 6-step swatch and count distinct steps</td></tr>
 <tr><td>Structure</td><td>Verticals lean in a level view, or a face's receding edges miss their point by more than 2% of page width</td><td>3 parallel receding edges of one face meet within 2% of page width of one point on the horizon</td><td>Convincing depth; sloped edges and ellipses also correct</td><td>Extend 3 parallel edges of one face with a ruler</td></tr>
 <tr><td>Selection</td><td>Uniform detail everywhere</td><td>One clear focal area</td><td>Detail decays deliberately toward the edges</td><td>Upside-down, 2-second point test against the focal point marked on your thumbnail (within 3 cm)</td></tr>
@@ -1005,6 +1254,8 @@ footer{margin-top:72px;padding-top:22px;border-top:2px solid var(--ink);font-siz
 <h2>Sources</h2>
 <p class="muted">Checked Nov 8, 2026. Prices marked "approx." are estimates; the rest were confirmed on these pages. The labs illustrate the program's rules with simplified models; they don't replace measuring your own pages.</p>
 <ul>
+<li><b>Line technique section:</b> Drawabox <a href="https://www.drawabox.com/lesson/1/2">Lesson 1: shoulder</a>, <a href="https://www.drawabox.com/lesson/1/3">ghosting / confidence</a>, <a href="https://www.drawabox.com/lesson/1/4">lines homework</a>, <a href="https://www.drawabox.com/lesson/1/5">ellipses</a>, <a href="https://www.drawabox.com/lesson/0/2">50% rule</a>, <a href="https://www.drawabox.com/lesson/250boxes/2">250 boxes</a>; <a href="https://www.proko.com/course-lesson/straight-line-discipline-with-peter-han">Peter Han, Straight Line Discipline</a>; <a href="https://www.studiomatrx.org/students/design-drawing/tools-media-and-warm-ups">studiomatrx warm-ups</a>; <a href="https://www.thedesignsketchbook.com/25cm-straight-lines-without-ruler">Design Sketchbook 25 cm lines</a>; <a href="https://www.slideshare.net/slideshow/architectural-graphics-fourth-edition-architectural-graphics/259647526">Ching, Architectural Graphics (excerpt)</a>; <a href="https://www.gutenberg.org/cache/epub/17502/pg17502-images.html">Maginnis, Pen Drawing</a>; <a href="https://memphis.edu/architecture/docs/drawing.standards.pdf">Memphis drawing standards</a>; <a href="https://cultpens.com/pages/guide-to-technical-pens">Cult Pens technical pens</a>; <a href="https://scilit.com/publications/2390ab4746b027d6b6f6ad427070d680">Lacquaniti et al. 1987</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4628178">Hara et al. 2015</a>; <a href="https://research.aston.ac.uk/en/publications/the-effect-of-supporting-a-surgeons-wrist-on-their-hand-tremor/">Coulson et al. 2010</a>; <a href="https://www.gwern.net/doc/psychology/spaced-repetition/1979-shea.pdf">Shea &amp; Morgan 1979</a>; <a href="https://walkerlab.berkeley.edu/reprints/Walker%20et%20al._Neuron_2002.pdf">Walker et al. 2002</a>; <a href="https://www.ida.liu.se/~nilda/Anders_Ericsson/Ericsson_delib_pract.pdf">Ericsson et al. 1993</a>. Millimetre benchmarks are this program's proposals (no published novice-vs-trained data was found).</li>
+
 <li>Tier prices (USD): <a href="https://www.rexart.com/product18298.html">Copic Multiliner SP 10-set</a>, <a href="https://draftingsuppliesdew.com/staedtler-308-wp4-pigment-liner-set-of-4">Staedtler Pigment Liner 4-set</a>, <a href="https://merriartist.com/products/sb900580">Stillman &amp; Birn Zeta</a>, <a href="https://www.staples.com/canson-xl-series-5-5-x-8-5-wire-bound-mixed-media-sketch-book-60-sheets-book-mcxc400085760/product_24625217">Canson XL Mix Media</a>, <a href="https://www.dickblick.com/items/canson-xl-mix-media-pad-8-12-x-5-12-portrait-60-sheets/">Canson XL paper weight</a>, <a href="https://www.texasart.com/group/24031">Strathmore 400 smooth</a>, <a href="https://www.penboutique.com/a/p/products/rotring-600-mechanical-pencil-0-5mm-lead">Rotring 600</a>, <a href="https://pentel.com/collections/all/products/graph-gear-1000-mechanical-drafting-pencil">Pentel GraphGear 1000</a>, <a href="https://shop.stlartsupply.com/products/sharp-p205-mechanical-pencil-0-5-mm-black">Pentel Sharp P205</a></li>
 <li><a href="https://www.cheapjoes.com/sakura-pigma-micron-pens.html">Sakura Pigma Micron line widths (005 = 0.20 mm … 05 = 0.45 mm)</a></li>
 <li><a href="https://japan-stationery.pages.dev/blog/stationery/sakura-pigma-micron-review/">Micron 6-pen set price and fragility of fine tips</a></li>
@@ -1315,6 +1566,67 @@ function draw(i,t){var cv=$('tq'+i),W=260,H=120,c=mkCanvas(cv,W,H),r=rng(31+i);c
 onView(G,function(){D.techniques.forEach(function(t,i){draw(i,t)})},0);
 })();
 
+window.FLP_BENCH=[{"label": "Week 0 · baseline", "bow": 5, "wob": 0.9, "wobF": 7, "miss": 6, "lat": 4, "hair": 2, "hook": 1.2, "slow": true, "broken": true, "note": "<b>Where most people start.</b> Lines bow toward the wrist, ripple where you slowed down, end in hooks or blobs, and miss the dot by several mm. Some get re-traced (hairy). This is normal: the wrist is driving and the eye is steering mid-stroke.", "pass": 0.1}, {"label": "Week 2", "bow": 3, "wob": 0.5, "wobF": 6, "miss": 4, "lat": 2.5, "hair": 1, "hook": 0.8, "slow": true, "broken": false, "note": "<b>Week 2.</b> The shoulder is doing most of the work; ripple drops because the stroke is faster. The bow is still there but smaller, and endpoints are closer. Expect bad days.", "pass": 0.3}, {"label": "Week 4", "bow": 2, "wob": 0.3, "wobF": 5, "miss": 3, "lat": 1.5, "hair": 0, "hook": 0.4, "slow": false, "broken": false, "note": "<b>Week 4.</b> No re-tracing, almost no hooks. Errors become consistent (the same bow direction every time), which tells you exactly what to fix: page rotation or posture.", "pass": 0.5}, {"label": "Week 8", "bow": 1.3, "wob": 0.2, "wobF": 5, "miss": 2, "lat": 1, "hair": 0, "hook": 0, "slow": false, "broken": false, "note": "<b>Week 8.</b> Most lines would pass a casual look. The remaining misses are mostly endpoints, not straightness.", "pass": 0.7}, {"label": "Week 12 · trained", "bow": 0.8, "wob": 0.12, "wobF": 5, "miss": 1.2, "lat": 0.7, "hair": 0, "hook": 0, "slow": false, "broken": false, "note": "<b>What training gets you.</b> Taut, even lines that land on the dot, at about half a second each, at any angle you rotate the page to, and still good when your attention is elsewhere. Stretch goal (architectural ink standard): 20 cm lines within 1 mm, 9 of 10 times.", "pass": 0.85}];window.FLP_FAULTS=[{"name": "Wobble", "p": {"wob": 0.7, "wobF": 9}}, {"name": "Hairy (re-traced)", "p": {"hair": 6, "hairW": 7}}, {"name": "Arc / bow", "p": {"bow": 5}}, {"name": "Overshoot", "p": {"miss": 6, "missDir": 1}}, {"name": "End blobs", "p": {"blob": true}}, {"name": "Slowing at the end", "p": {"wob": 0.55, "wobF": 8, "slowEnd": true}}, {"name": "Hooks", "p": {"hookS": 2.4, "hookE": 2}}, {"name": "Broken / hesitant", "p": {"broken": true}}];
+
+/* ---------- Line technique labs ---------- */
+(function(){
+var W=640,H=360;
+function T(c,s,x,y,col,size,al,wt){c.fillStyle=col||'#5c5c5a';c.font=(wt||700)+' '+(size||11)+'px Outfit,Helvetica,Arial,sans-serif';c.textAlign=al||'left';c.fillText(s,x,y);c.textAlign='left'}
+/* simulated hand line. A,B in px; o in mm (pxmm = px per mm) */
+function handLine(c,A,B,o,pxmm){var r=rng(o.seed||1),dx=B[0]-A[0],dy=B[1]-A[1],L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,nx=-uy,ny=ux,
+  miss=(o.miss||0)*pxmm*(o.missDir||(r()<.5?-1:1)),lat=(o.lat||0)*pxmm*(r()<.5?-1:1),Le=L+miss,bow=(o.bow||0)*pxmm*(r()<.5?-1:1),wob=(o.wob||0)*pxmm,ph=r()*6,ph2=r()*6,f=o.wobF||5,N=120,pts=[];
+  for(var i=0;i<=N;i++){var t=i/N,along=t*Le,off=4*bow*t*(1-t)+lat*t*t+wob*(.65*Math.sin(t*f*6.283+ph)+.35*Math.sin(t*f*2.7*6.283+ph2))*(o.slowEnd?(.4+1.2*t):1);
+    if(o.hookS&&t<.06)off+=o.hookS*pxmm*(1-t/.06)*(1-t/.06);if(o.hookE&&t>.94)off+=o.hookE*pxmm*((t-.94)/.06)*((t-.94)/.06);
+    pts.push([A[0]+ux*along+nx*off,A[1]+uy*along+ny*off])}
+  function stroke(P,w){c.save();c.strokeStyle=INK;c.lineWidth=w;c.lineCap='round';c.lineJoin='round';c.beginPath();P.forEach(function(q,i){if(i)c.lineTo(q[0],q[1]);else c.moveTo(q[0],q[1])});c.stroke();c.restore()}
+  if(o.broken){var cut=Math.floor(N*(.45+r()*.2));stroke(pts.slice(0,cut),o.w||1.6);stroke(pts.slice(cut+3).map(function(q){return[q[0]+nx*1.5,q[1]+ny*1.5]}),o.w||1.6)}
+  else if(o.taper){for(var k=0;k<N;k++){var t2=k/N;c.save();c.strokeStyle=INK;c.lineWidth=(o.w||1.6)*(t2<.85?1:Math.max(.25,(1-t2)/.15));c.beginPath();c.moveTo(pts[k][0],pts[k][1]);c.lineTo(pts[k+1][0],pts[k+1][1]);c.stroke();c.restore()}}
+  else stroke(pts,o.w||1.6);
+  for(var h=0;h<(o.hair||0);h++){var s0=Math.floor(r()*N*.7),s1=Math.min(N,s0+Math.floor(N*(.15+r()*.3))),sh=(r()-.5)*(o.hairW||2.4);stroke(pts.slice(s0,s1).map(function(q){return[q[0]+nx*sh,q[1]+ny*sh]}),(o.w||1.6)*.8)}
+  if(o.blob){c.fillStyle=INK;c.beginPath();c.arc(pts[0][0],pts[0][1],(o.w||1.6)*1.6,0,7);c.fill();c.beginPath();c.arc(pts[N][0],pts[N][1],(o.w||1.6)*1.5,0,7);c.fill()}
+  return pts}
+window.FLP_handLine=handLine;
+
+/* ---- 1. pivot lab: why one joint draws an arc ---- */
+var pv=$('pivCv');if(pv){var pc=mkCanvas(pv,W,H),PX=W/220; /* canvas = 22 cm */
+ var J={finger:{r:40,lab:'Fingers'},wrist:{r:150,lab:'Wrist'},elbow:{r:400,lab:'Elbow'},shoulder:{r:700,lab:'Shoulder (arm held straight)'},combo:{r:0,lab:'Shoulder + elbow together'}};
+ function draw(){var j=$('pivJoint').value,Lmm=+$('pivLen').value*10;$('pivLenVal').textContent=(Lmm/10)+' cm';pc.fillStyle='#fff';pc.fillRect(0,0,W,H);
+  var cx=W/2,cy=150,A=[cx-Lmm/2*PX,cy],B=[cx+Lmm/2*PX,cy];
+  pc.save();pc.strokeStyle='rgba(40,40,40,.25)';pc.setLineDash([5,5]);pc.lineWidth=1;pc.beginPath();pc.moveTo(A[0],cy);pc.lineTo(B[0],cy);pc.stroke();pc.restore();
+  for(var m=0;m<=220;m+=10){pc.strokeStyle='rgba(40,40,40,.35)';pc.lineWidth=1;pc.beginPath();pc.moveTo(m*PX,H-30);pc.lineTo(m*PX,H-(m%50?36:42));pc.stroke();if(m%50===0)T(pc,(m/10)+' cm',m*PX+2,H-14,'#5c5c5a',10)}
+  pc.strokeStyle=INK;pc.lineWidth=1;pc.beginPath();pc.moveTo(0,H-30);pc.lineTo(W,H-30);pc.stroke();
+  var sag,out=$('pivOut');
+  if(j==='combo'){var r=rng(7);pc.strokeStyle=INK;pc.lineWidth=2.2;pc.beginPath();for(var i=0;i<=80;i++){var t=i/80,y=cy+Math.sin(t*9)*.25*PX*.5+(r()-.5)*.15*PX;if(i)pc.lineTo(A[0]+(B[0]-A[0])*t,y);else pc.moveTo(A[0],y)}pc.stroke();
+    sag=0.3;T(pc,'shoulder swings, elbow opens: their two arcs cancel',A[0],cy-28,ACC,12);
+    out.innerHTML='<b>Coordinated shoulder + elbow:</b> each joint alone would draw an arc, but bending in opposite senses they cancel, the way a two-joint robot arm moves its tool in a straight line. How straight depends on training, not geometry: see the progression bands below (≈ 1–1.5 mm on 15 cm by week 12 [proposed]). This coordination is the skill the drills build.'}
+  else{var R=J[j].r,half=Lmm/2;if(half>=R){sag=R;out.innerHTML='<b>'+J[j].lab+':</b> a '+Lmm/10+' cm stroke is longer than this joint can reach (radius ≈ '+R/10+' cm). The hand has to slide or another joint takes over.';}
+    else{sag=R-Math.sqrt(R*R-half*half);var sp=sag*PX,ccy=cy+(R*PX-sp)+sp;/* arc bulges upward */
+      var ang=Math.asin(half/R),Rc=R*PX,ox=cx,oy=cy-sp+Rc;pc.strokeStyle=INK;pc.lineWidth=2.2;pc.beginPath();pc.arc(ox,oy,Rc,-Math.PI/2-ang,-Math.PI/2+ang);pc.stroke();
+      if(Rc<400){pc.save();pc.strokeStyle=ACC;pc.setLineDash([3,4]);pc.lineWidth=1;pc.beginPath();pc.moveTo(ox,Math.min(oy,H-50));pc.lineTo(A[0],cy);pc.moveTo(ox,Math.min(oy,H-50));pc.lineTo(B[0],cy);pc.stroke();pc.restore();if(oy<H-40){pc.fillStyle=ACC;pc.beginPath();pc.arc(ox,oy,5,0,7);pc.fill();T(pc,'pivot: '+J[j].lab.toLowerCase(),ox+9,oy+4,ACC,11)}}
+      pc.strokeStyle=ACC;pc.lineWidth=1.2;pc.beginPath();pc.moveTo(cx,cy);pc.lineTo(cx,cy-sp);pc.stroke();T(pc,'bow '+(sag<10?sag.toFixed(1):Math.round(sag))+' mm',cx+8,cy-sp/2+4,ACC,12);
+      var maxL=2*Math.sqrt(2*R*1-1);out.innerHTML='<b>'+J[j].lab+' pivot</b> (radius ≈ '+R/10+' cm, typical adult): a '+Lmm/10+' cm stroke bows <b>'+sag.toFixed(sag<10?1:0)+' mm</b> → '+(sag<=1?'<span class="ok">within the 1 mm rubric</span>':'<span class="bad">fails the 1 mm rubric</span>')+'. Longest stroke this joint alone keeps under 1 mm of bow: <b>≈ '+(maxL/10).toFixed(1)+' cm</b>.'}}
+  [].forEach.call(document.querySelectorAll('#pivTable tr[data-j]'),function(tr){tr.classList.toggle('on',tr.dataset.j===j)})}
+ ['pivJoint','pivLen'].forEach(function(id){$(id).addEventListener('input',draw)});onView(pv,draw,0);draw()}
+
+/* ---- 2. progression: week 0 → week 12 ---- */
+var BENCH=window.FLP_BENCH||[];
+var gc=$('progCv');if(gc&&BENCH.length){var g=mkCanvas(gc,W,H),PXg=W/170; /* 15 cm line fills ~ 560 px */
+ function drawP(){var k=+$('progWk').value,b=BENCH[k];$('progWkVal').textContent=b.label;g.fillStyle='#fff';g.fillRect(0,0,W,H);
+  for(var i=0;i<6;i++){var y=40+i*52,A=[40,y],B=[40+150*PXg,y];g.fillStyle='rgba(31,95,168,.85)';g.beginPath();g.arc(A[0],A[1],2.6,0,7);g.arc(B[0],B[1],2.6,0,7);g.fill();
+    var bad=i<Math.round(6*(1-b.pass));handLine(g,A,B,{seed:k*31+i+1,bow:b.bow*(bad?1.5:.6),wob:b.wob*(bad?1.3:.6),wobF:b.wobF,miss:b.miss*(bad?1.4:.5),lat:b.lat*(bad?1.4:.5),hair:bad?b.hair:0,hookS:bad?b.hook:0,hookE:bad?b.hook*.7:0,broken:bad&&b.broken&&i===0,slowEnd:b.slow,w:1.6},PXg)}
+  T(g,'six 15 cm lines, dot to dot, as drawn at this stage (blue dots = targets)',40,H-14,'#5c5c5a',11);
+  $('progOut').innerHTML=b.note;[].forEach.call(document.querySelectorAll('#progTable tr[data-k]'),function(tr){tr.classList.toggle('on',+tr.dataset.k===k)})}
+ $('progWk').addEventListener('input',drawP);onView(gc,drawP,0);drawP()}
+
+/* ---- 3. fault gallery ---- */
+var fc=$('faultCv');if(fc){var f=mkCanvas(fc,W,420),PXf=4,F=window.FLP_FAULTS||[];
+ function drawF(sel){f.fillStyle='#fff';f.fillRect(0,0,W,420);F.forEach(function(fl,i){var col=i%2,row=Math.floor(i/2),x=20+col*315,y=28+row*100,A=[x+10,y+38],B=[x+290,y+38];
+   if(sel===i){f.fillStyle='#f1f1ef';f.fillRect(x-6,y-18,307,92)}T(f,(i+1)+'  '+fl.name.toUpperCase(),x,y,INK,11);
+   f.save();f.strokeStyle='rgba(31,95,168,.5)';f.setLineDash([3,4]);f.lineWidth=1;f.beginPath();f.moveTo(A[0],A[1]);f.lineTo(B[0],B[1]);f.stroke();f.restore();
+   handLine(f,A,B,Object.assign({seed:i+3,w:1.7},fl.p),PXf)});}
+ drawF(-1);fc.addEventListener('click',function(e){var m=toLocal(fc,e,W),col=m.x<320?0:1,row=Math.floor((m.y-10)/100),i=row*2+col;if(F[i]){drawF(i);var tr=document.querySelector('#faultTable tr[data-f="'+i+'"]');[].forEach.call(document.querySelectorAll('#faultTable tr'),function(t){t.classList.remove('on')});if(tr){tr.classList.add('on');$('faultOut').innerHTML='<b>'+F[i].name+':</b> '+tr.children[2].innerHTML+' <b>Fix:</b> '+tr.children[3].innerHTML}}})}
+})();
+
 
 /* ---------- Explain / Demo / Do ---------- */
 (function(){
@@ -1358,6 +1670,24 @@ var DEMOS={
  {t:'<b>Review (next day).</b> Extend receding edges with a ruler: they should meet at the vanishing point. Score it with the rubric.',d:function(c,p){[[FT,RT],[FB,RB],[LT,BT]].forEach(function(e,i){part(c,e[1],VR,cl(p*1.5-i*.2),1.2,BLUE,[5,4])});if(p>.85){dot(c,VR,6,BLUE);txt(c,'✓ meets the VP',500,HY-14,BLUE,12)}},ms:1600},
  {t:'<b>Log + repeat.</b> One row in the practice log: the weakest subsystem picks tomorrow\'s drill.',d:function(c,p){c.save();c.globalAlpha=cl(p*2);c.fillStyle='#fff';c.fillRect(24,318,592,32);c.strokeStyle=INK;c.lineWidth=1.5;c.strokeRect(24,318,592,32);txt(c,'today · week 7 · box study · 45 min · weakest: structure',36,339,INK,11);c.restore()}}
 ]},
+'lesson-technique':{solo:true,ref:function(c){clr(c);var r=rng(11);txt(c,'superimposed lines · 8 passes each',24,24,INK,11);
+  for(var i=0;i<5;i++){var a=[40+r()*40,50+i*24],b=[300+r()*20,40+i*24+r()*20];for(var k=0;k<8;k++){var e=k/7;ln(c,a,[b[0]+(r()-.3)*6*e,b[1]+(r()-.5)*5*e],1)}}
+  txt(c,'ghosted lines · dot to dot',360,24,INK,11);for(var j=0;j<9;j++){var A=[360+r()*120,50+r()*270],ang=r()*6.283,len=60+r()*90,B=[Math.max(345,Math.min(625,A[0]+Math.cos(ang)*len)),Math.max(45,Math.min(340,A[1]+Math.sin(ang)*len))];dot(c,A,3,BLUE);dot(c,B,3,BLUE);ln(c,[A[0]+(r()-.5)*2,A[1]+(r()-.5)*2],[B[0]+(r()-.5)*4,B[1]+(r()-.5)*4],1.6)}
+  txt(c,'long lines · edge to edge',24,200,INK,11);for(var m=0;m<5;m++){var y=220+m*26;ln(c,[24,y+r()*6],[320,y+r()*8],1.6)}},
+ steps:(function(){var S=[150,395],L1=215,L2=235,P0=[235,105],P1=[485,105];
+ function ik(T){var dx=T[0]-S[0],dy=T[1]-S[1],d=Math.hypot(dx,dy),a=Math.acos(Math.max(-1,Math.min(1,(L1*L1+d*d-L2*L2)/(2*L1*d)))),th=Math.atan2(dy,dx)+a;return[S[0]+L1*Math.cos(th),S[1]+L1*Math.sin(th)]}
+ function arm(c,T,E,Wr,ghost){c.save();c.globalAlpha=ghost?.35:1;c.strokeStyle='#9c9c9a';c.lineCap='round';c.lineWidth=16;c.beginPath();c.moveTo(S[0],S[1]);c.lineTo(E[0],E[1]);c.stroke();c.lineWidth=11;c.beginPath();c.moveTo(E[0],E[1]);c.lineTo(Wr[0],Wr[1]);c.stroke();c.lineWidth=7;c.beginPath();c.moveTo(Wr[0],Wr[1]);c.lineTo(T[0],T[1]);c.stroke();
+   [S,E,Wr].forEach(function(q){c.fillStyle='#fff';c.strokeStyle=INK;c.lineWidth=2;c.beginPath();c.arc(q[0],q[1],6,0,7);c.fill();c.stroke()});dot(c,T,3.5,INK);c.restore()}
+ function pose(T){var E=ik(T),u=[(T[0]-E[0])/L2,(T[1]-E[1])/L2];return{E:E,Wr:[T[0]-u[0]*70,T[1]-u[1]*70]}}
+ function lab(c){txt(c,'shoulder',S[0]+12,S[1]-4,INK,11)}
+ return[
+ {t:'<b>Setup.</b> Sit upright, elbow off the table, paper slightly toward your drawing side and rotated so the stroke runs in your best direction. Seen from above: shoulder, elbow, wrist, pen.',d:function(c,p){var q=pose(P0);arm(c,P0,q.E,q.Wr);lab(c);txt(c,'elbow',q.E[0]+12,q.E[1]+4,INK,11);txt(c,'wrist',q.Wr[0]+12,q.Wr[1]+4,INK,11);if(p>.3){dot(c,P0,4,BLUE);dot(c,P1,4,BLUE)}}},
+ {t:'<b>Wrist only:</b> the pen swings on a ~15 cm radius (wrist to pen tip), so past ~3.5 cm the bow exceeds 1 mm. Right for hatching and detail, wrong for long lines.',d:function(c,p){var q=pose(P0),R=70,a0=Math.atan2(P0[1]-q.Wr[1],P0[0]-q.Wr[0]),a=a0+cl(p)*1.1;c.save();c.strokeStyle=INK;c.lineWidth=2;c.beginPath();c.arc(q.Wr[0],q.Wr[1],R,a0,a);c.stroke();c.restore();arm(c,[q.Wr[0]+R*Math.cos(a),q.Wr[1]+R*Math.sin(a)],q.E,q.Wr,true);txt(c,'arc ✕',q.Wr[0]+60,q.Wr[1]-50,BLUE,12)},ms:1500},
+ {t:'<b>Elbow only:</b> a bigger radius (~40 cm, elbow to pen tip), a flatter arc, but a 15 cm stroke still bows about 7 mm.',d:function(c,p){var q=pose(P0),R=Math.hypot(P0[0]-q.E[0],P0[1]-q.E[1]),a0=Math.atan2(P0[1]-q.E[1],P0[0]-q.E[0]),a=a0+cl(p)*.75,T=[q.E[0]+R*Math.cos(a),q.E[1]+R*Math.sin(a)];c.save();c.strokeStyle=INK;c.lineWidth=2;c.beginPath();c.arc(q.E[0],q.E[1],R,a0,a);c.stroke();c.restore();arm(c,T,q.E,[T[0]-(T[0]-q.E[0])/R*70,T[1]-(T[1]-q.E[1])/R*70],true);txt(c,'still an arc ✕',T[0]+10,T[1]+24,BLUE,12)},ms:1500},
+ {t:'<b>Shoulder + elbow together:</b> the shoulder swings while the elbow opens. Two arcs that bend opposite ways cancel, and the pen travels straight (like a two-joint robot arm). The wrist stays locked.',d:function(c,p){var T=lp(P0,P1,cl(p)),q=pose(T);ln(c,P0,T,2.2);arm(c,T,q.E,q.Wr);if(p>.98)txt(c,'straight ✓',P1[0]-20,P1[1]-14,BLUE,12)},ms:2400},
+ {t:'<b>Ghost 3×:</b> the same motion with the pen just above the paper. You are rehearsing the joint pattern, not the line.',d:function(c,p){var rep=Math.min(2,Math.floor(p*3)),t=p>=1?1:(p*3-rep),T=lp(P0,P1,t),q=pose(T);for(var r=0;r<rep;r++)ln(c,P0,P1,1,BLUE,[3,5]);part(c,P0,P1,t,1,BLUE,[3,5]);arm(c,T,q.E,q.Wr,true);txt(c,'ghost '+(rep+1)+' of 3',P0[0],P0[1]-16,BLUE,12)},ms:2700},
+ {t:'<b>Commit</b> at ghosting speed, one pass, and lift off past the end dot. Then check with a ruler: the gap should be under 1 mm.',d:function(c,p){var T=lp(P0,P1,cl(p)),q=pose(T);ln(c,P0,T,2.4);arm(c,T,q.E,q.Wr);if(p>.98){c.save();c.globalAlpha=.15;c.fillStyle=INK;c.fillRect(P0[0]-10,P0[1]+5,P1[0]-P0[0]+20,20);c.restore();txt(c,'ruler: gap < 1 mm ✓',P0[0],P0[1]+42,BLUE,12)}},ms:1000}
+ ]})()},
 'lesson-line':{steps:[
  {t:'<b>Place both endpoints</b> as dots. The stroke now has a target at each end.',d:function(c,p){if(p>.2)dot(c,[110,250],4);if(p>.6)dot(c,[530,140],4)}},
  {t:'<b>Turn the page</b> so the stroke runs in your most natural direction (most people pull toward the body or sweep left to right).',d:function(c,p){c.save();c.translate(320,195);c.rotate(-cl(p)*.26);c.strokeStyle=GRAY;c.lineWidth=1.2;c.strokeRect(-250,-150,500,300);c.restore();dot(c,[110,250],4);dot(c,[530,140],4)}},
@@ -1437,7 +1767,7 @@ function Stepper(root,id){var spec=DEMOS[id];if(!spec)return;var cap=root.queryS
  if(spec.svg){var src=pickSvg(id);
    var holder=root.querySelector('.demo-svg');holder.innerHTML='';if(src){var cl2=src.cloneNode(true);holder.appendChild(cl2);groups=[].slice.call(cl2.querySelectorAll(':scope > g[transform]'))}root.querySelector('.demo-cv-wrap').style.display='none'}
  else{c=C(root.querySelector('.demo-cv'));root.querySelector('.demo-svg').style.display='none'}
- function render(p){if(spec.svg){groups.forEach(function(g,i){g.style.transition='opacity .5s';g.style.opacity=i===k?1:(i<k?.3:.08)});return}clr(c);for(var i=0;i<k;i++)spec.steps[i].d(c,1);spec.steps[k].d(c,p)}
+ function render(p){if(spec.svg){groups.forEach(function(g,i){g.style.transition='opacity .5s';g.style.opacity=i===k?1:(i<k?.3:.08)});return}clr(c);if(!spec.solo)for(var i=0;i<k;i++)spec.steps[i].d(c,1);spec.steps[k].d(c,p)}
  function stop(){playing=false;clearTimeout(tm);pb.textContent='Play ▶'}
  function go(n,anim){k=Math.max(0,Math.min(spec.steps.length-1,n));cancelAnimationFrame(raf);clearTimeout(tm);cap.innerHTML='<b>'+(k+1)+'</b><span>'+spec.steps[k].t+'</span>';cnt.textContent='Step '+(k+1)+' of '+spec.steps.length;
    if(!anim||reduce||spec.svg){render(1);if(playing)tm=setTimeout(next,spec.svg?2200:1400);return}var T0=performance.now(),dur=spec.steps[k].ms||1100;
@@ -1447,7 +1777,7 @@ function Stepper(root,id){var spec=DEMOS[id];if(!spec)return;var cap=root.queryS
  root.querySelector('[data-act="next"]').addEventListener('click',function(){stop();go(k+1,true)});
  pb.addEventListener('click',function(){if(playing){stop();return}playing=true;pb.textContent='Pause ❚❚';if(k>=spec.steps.length-1)go(0,true);else go(k,true)});
  go(0,true);
- return{final:function(cv){if(spec.svg)return;var cc=C(cv);clr(cc);spec.steps.forEach(function(s){s.d(cc,1)})}}}
+ return{final:function(cv){if(spec.svg)return;var cc=C(cv);clr(cc);if(spec.ref){spec.ref(cc);return}spec.steps.forEach(function(s){s.d(cc,1)})}}}
 
 /* ---------- practice pads ---------- */
 var PX_MM=4; // pad is ~16 cm wide at this scale
@@ -1464,7 +1794,18 @@ var GUIDES={
     var devmm=dev/PX_MM,endmm=end/PX_MM,re=near>1,okP=devmm<=1&&endmm<=1.5&&!re,okS=devmm<=2&&endmm<=3&&!re;if(okP)pass++;if(okS)passS++;
     c.save();c.strokeStyle=okS?BLUE:'#111';c.setLineDash([4,4]);c.lineWidth=1;ln(c,A,B,1,okS?BLUE:'#999',[4,4]);c.restore();
     rows.push('<tr><td>'+(i+1)+'</td><td>'+devmm.toFixed(1)+' mm</td><td>'+endmm.toFixed(1)+' mm</td><td>'+(re?'<span class="bad">re-traced</span>':(okP?'<span class="ok">paper</span>':(okS?'<span class="ok">screen</span>':'<span class="bad">miss</span>')))+'</td></tr>')});
-   return'<table class="padt"><tr><th>#</th><th>Wobble</th><th>End miss</th><th>Result</th></tr>'+rows.join('')+'</table><p class="small">'+passS+' of '+g.pairs.length+' meet the screen standard (≤2 mm wobble, ≤3 mm endpoint miss); '+pass+' meet the paper standard (≤1 mm, as in the rubric). A finger is clumsier than a pen, so the paper drill is still the real test.</p>'}},
+   return'<table class="padt"><tr><th>#</th><th>Max dev</th><th>End miss</th><th>Result</th></tr>'+rows.join('')+'</table><p class="small">'+passS+' of '+g.pairs.length+' meet the screen standard (≤2 mm wobble, ≤3 mm endpoint miss); '+pass+' meet the paper standard (≤1 mm, as in the rubric). A finger is clumsier than a pen, so the paper drill is still the real test.</p>'}},
+ long:{make:function(){var r=Math.random(),y0=60+r*240,y1=60+Math.random()*240;return{pairs:[[[30,y0],[610,y1]]]}},
+  draw:function(c,g){GUIDES.line.draw(c,g);txt(c,'one long line: ~14.5 cm. shoulder + elbow, wrist locked',24,24,INK,12)},
+  score:function(strokes,g,c){return GUIDES.line.score(strokes,g,c)}},
+ parallel:{make:function(){var a=(Math.random()-.5)*.9;return{a:a}},
+  draw:function(c,g){c.save();c.strokeStyle=INK;c.lineWidth=1.5;c.strokeRect(150,40,340,280);c.restore();var dx=Math.cos(g.a)*150,dy=Math.sin(g.a)*150;ln(c,[170,60],[170+dx,60+dy],2,BLUE);txt(c,'match this angle: fill the box with parallel lines, even spacing (~3 mm)',24,24,INK,12)},
+  score:function(strokes,g,c){var L=strokes.filter(function(s){return s.length>3}).map(function(s){var a=s[0],b=s[s.length-1];return{a:a,b:b,ang:Math.atan2(b[1]-a[1],b[0]-a[0]),mid:[(a[0]+b[0])/2,(a[1]+b[1])/2]}});
+   if(L.length<6)return'Draw at least 6 parallel lines inside the box.';L.forEach(function(l){var d=l.ang-g.a;while(d>Math.PI/2)d-=Math.PI;while(d<-Math.PI/2)d+=Math.PI;l.d=d*180/Math.PI});
+   var md=L.reduce(function(s,l){return s+l.d},0)/L.length,sd=Math.sqrt(L.reduce(function(s,l){return s+(l.d-md)*(l.d-md)},0)/L.length),nx=-Math.sin(g.a),ny=Math.cos(g.a);
+   var pos=L.map(function(l){return l.mid[0]*nx+l.mid[1]*ny}).sort(function(a,b){return a-b}),gaps=[];for(var i=1;i<pos.length;i++)gaps.push(pos[i]-pos[i-1]);
+   var mg=gaps.reduce(function(s,x){return s+x},0)/gaps.length,gsd=Math.sqrt(gaps.reduce(function(s,x){return s+(x-mg)*(x-mg)},0)/gaps.length),cv=gsd/mg*100,okA=Math.abs(md)<=3&&sd<=2,okS=cv<=25;
+   return L.length+' lines. Angle: mean error <b>'+md.toFixed(1)+'°</b>, spread σ <b>'+sd.toFixed(1)+'°</b> → '+(okA?'<span class="ok">parallel (≤3° off, σ ≤2°)</span>':'<span class="bad">drifting (target ≤3° off, σ ≤2°)</span>')+'. Spacing: mean <b>'+(mg/PX_MM).toFixed(1)+' mm</b>, variation <b>'+cv.toFixed(0)+'%</b> → '+(okS?'<span class="ok">even (≤25%)</span>':'<span class="bad">uneven (target ≤25%)</span>')+'. Paper target after training: ≤15% spacing variation.'}},
  tone:{make:function(){var T=[.15,.3,.45,.6];return{t:T[Math.floor(Math.random()*T.length)]}},
   draw:function(c,g){c.fillStyle='rgba(0,0,0,'+g.t+')';c.fillRect(80,90,180,180);c.strokeStyle=INK;c.lineWidth=1.5;c.strokeRect(80,90,180,180);c.strokeRect(380,90,180,180);txt(c,'target tone',80,80,INK,12);txt(c,'hatch here to match',380,80,INK,12)},
   score:function(strokes,g,c){var x=384,y=94,w=172,d=c.getImageData(Math.round(x*DPR),Math.round(y*DPR),Math.round(w*DPR),Math.round(w*DPR)).data,N=Math.round(w*DPR),t=0,cells=[],k,i,j;for(i=0;i<36;i++)cells.push(0);
@@ -1504,14 +1845,64 @@ function DoPanel(root,id,stepper){var mins=+root.dataset.min||20,left=mins*60,ru
 [].forEach.call(document.querySelectorAll('article.sheet'),function(sh){var id=sh.id,tabs=sh.querySelectorAll('.modes [role="tab"]'),panels=sh.querySelectorAll('.mode-panel'),stepper=null,inited={};
  function show(mode){[].forEach.call(tabs,function(t){var on=t.dataset.mode===mode;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1});[].forEach.call(panels,function(p){p.hidden=p.dataset.panel!==mode});
    if(mode==='demo'&&!inited.demo){inited.demo=1;stepper=Stepper(sh.querySelector('.demo'),id)}
-   if(mode==='do'&&!inited.do){inited.do=1;if(!stepper&&DEMOS[id]&&!DEMOS[id].svg){var tmp=document.createElement('div');stepper={final:function(cv){var cc=C(cv);clr(cc);DEMOS[id].steps.forEach(function(s){s.d(cc,1)})}}}DoPanel(sh.querySelector('.do'),id,stepper)}}
+   if(mode==='do'&&!inited.do){inited.do=1;if(!stepper&&DEMOS[id]&&!DEMOS[id].svg){var tmp=document.createElement('div');stepper={final:function(cv){var cc=C(cv);clr(cc);if(DEMOS[id].ref){DEMOS[id].ref(cc);return}DEMOS[id].steps.forEach(function(s){s.d(cc,1)})}}}DoPanel(sh.querySelector('.do'),id,stepper)}}
  [].forEach.call(tabs,function(t,i){t.addEventListener('click',function(){show(t.dataset.mode)});t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;tabs[n].focus();show(tabs[n].dataset.mode)}})});
 });
 })();
 
+
+/* ---------- Pen + pencil visual guide ---------- */
+(function(){var W=640,H=360,MM=8;
+function T(c,t,x,y,col,sz,al,wt){c.fillStyle=col||'#5c5c5a';c.font=(wt||700)+' '+(sz||11)+'px Outfit,Helvetica,Arial,sans-serif';c.textAlign=al||'left';c.fillText(t,x,y);c.textAlign='left'}
+function L(c,a,b,w,col){c.strokeStyle=col||INK;c.lineWidth=w;c.lineCap='round';c.beginPath();c.moveTo(a[0],a[1]);c.lineTo(b[0],b[1]);c.stroke()}
+function R(c,x,y,w,h,lw){c.strokeStyle=INK;c.lineWidth=lw;c.lineJoin='miter';c.strokeRect(x,y,w,h)}
+function hatch(c,x,y,w,h,sp,lw,ang){c.save();c.beginPath();c.rect(x,y,w,h);c.clip();c.strokeStyle=INK;c.lineWidth=lw;c.lineCap='butt';var d=w+h;for(var t=-d;t<d;t+=sp){c.beginPath();if(ang>0){c.moveTo(x+t,y+h);c.lineTo(x+t+h,y)}else if(ang<0){c.moveTo(x+t,y);c.lineTo(x+t+h,y+h)}else{c.moveTo(x,y+t);c.lineTo(x+w,y+t)}c.stroke()}c.restore()}
+/* elevation with weights {p:profile,e:edge,d:detail,t:texture} in mm */
+function house(c,wt,fake){c.fillStyle='#fff';c.fillRect(0,0,W,H);var p=wt.p*MM,e=wt.e*MM,d=wt.d*MM,t=wt.t*MM;
+ var x0=150,x1=490,y0=150,y1=318,rx=(x0+x1)/2,ry=62;
+ /* texture first: bricks near the left corner, roof tiles, eave shadow */
+ c.save();c.beginPath();c.rect(x0,y0,x1-x0,y1-y0);c.clip();for(var k=0;k<14;k++){var yy=y0+18+k*11,len=(x1-x0)*Math.max(.05,.5-k*.02);if(k>3)L(c,[x0,yy],[x0+Math.min(44,len*(1-k/18)),yy],t)}
+ for(var j=4;j<14;j++){for(var xx=x0+(j%2?10:22);xx<Math.min(x0+44,x0+90-j*4);xx+=24)L(c,[xx,y0+18+j*11],[xx,y0+29+j*11],t)}c.restore();
+ hatch(c,x0,y0,x1-x0,14,2.4*MM/2.4*1.2,t,-1);
+ c.save();c.beginPath();c.moveTo(x0-14,y0);c.lineTo(rx,ry);c.lineTo(x1+14,y0);c.closePath();c.clip();for(var r=0;r<9;r++){var yr=ry+10+r*9.5;L(c,[x0-14,yr],[x1+14,yr],t)}c.restore();
+ /* detail: mullions, door panels, sills */
+ [[200,200],[380,200]].forEach(function(o){var wx=o[0],wy=o[1];L(c,[wx+30,wy],[wx+30,wy+56],d);L(c,[wx,wy+28],[wx+60,wy+28],d);hatch(c,wx+2,wy+2,26,24,1.5*MM/1.5*1.3,d,1)});
+ L(c,[300,252],[340,252],d);L(c,[300,284],[340,284],d);
+ /* edges: window and door frames, corner */
+ [[200,200],[380,200]].forEach(function(o){R(c,o[0],o[1],60,56,e);L(c,[o[0]-5,o[1]+60],[o[0]+65,o[1]+60],e)});R(c,292,236,56,82,e);
+ /* profile: silhouette + ground */
+ c.strokeStyle=INK;c.lineWidth=p;c.lineJoin='round';c.beginPath();c.moveTo(x0,y1);c.lineTo(x0,y0);c.lineTo(x0-14,y0);c.lineTo(rx,ry);c.lineTo(x1+14,y0);c.lineTo(x1,y0);c.lineTo(x1,y1);c.stroke();
+ L(c,[70,y1],[570,y1],p);
+ if(fake){c.lineWidth=p;c.beginPath();c.moveTo(x0+1.6,y1);c.lineTo(x0+1.6,y0+1.5);c.stroke();L(c,[70,y1+1.8],[570,y1+1.8],p);c.save();c.setLineDash([6,5]);hatch(c,0,0,0,0,1,0,0);c.restore()}}
+var SETS={one:{w:{p:.35,e:.35,d:.35,t:.35},m:'<b>One pen, every line 0.35.</b> Everything reads at the same importance: the silhouette doesn\'t separate from the bricks, and the texture looks heavy. Fine for line drills, where you train control, not weight.'},
+ hier:{w:{p:.45,e:.35,d:.25,t:.2},m:'<b>Your kit: Micron 05 profile, 03 edges, 01 detail, 005 texture.</b> The building separates from its details; the eye reads the shape first, then the windows, then the material. This is the payoff of a hierarchy.'},
+ bold:{w:{p:.8,e:.35,d:.2,t:.1},m:'<b>High contrast: Staedtler 0.8 profile, Micron 03 edges, 005 detail, Staedtler 0.1 texture.</b> Punchy, poster-like; good for small thumbnails and quick café sketches. Wider steps between weights = more drama, less subtlety.'},
+ fine:{w:{p:.2,e:.2,d:.2,t:.2},m:'<b>Everything 0.2.</b> Delicate but flat: no line leads. Right for texture, too timid for the silhouette.'},
+ heavy:{w:{p:.8,e:.8,d:.8,t:.8},m:'<b>Everything 0.8.</b> Bold but clumsy: texture and mullions clog and small spaces fill in. Heavy nibs belong on profiles and accents only.'}};
+var nc=$('nibCv');if(nc){var c=mkCanvas(nc,W,H);function dn(){var k=$('nibSet').value,S=SETS[k];house(c,S.w,S.f);$('nibOut').innerHTML=S.m}$('nibSet').addEventListener('change',dn);onView(nc,dn,0);dn()}
+var ns=$('nibStrip');if(ns){var c2=mkCanvas(ns,W,300),P=[['St 0.05',.05],['St 0.1',.1],['Mi 005',.2],['Mi 01',.25],['Mi 03',.35],['Mi 05',.45],['Mi 10',.6],['St 0.8',.8],['St 1.2',1.2]],KIT={'Mi 005':1,'Mi 01':1,'Mi 03':1,'Mi 05':1,'St 0.8':1};
+ function ds(){c2.fillStyle='#fff';c2.fillRect(0,0,W,300);P.forEach(function(q,i){var x=14+i*70,w=q[1]*MM;T(c2,q[0],x,22,INK,12,'left',800);T(c2,q[1].toFixed(2)+' mm',x,38,'#5c5c5a',11);
+   L(c2,[x,56],[x+56,56],w);hatch(c2,x,74,56,72,1.5*MM,w,1);hatch(c2,x,164,56,72,1.5*MM,w,1);hatch(c2,x,164,56,72,1.5*MM,w,-1);
+   T(c2,Math.min(100,Math.round(q[1]/1.5*100))+'%',x,256,INK,12);if(KIT[q[0]]){c2.save();c2.strokeStyle=ACC;c2.lineWidth=2;c2.strokeRect(x-6,6,68,280);c2.restore();T(c2,'KIT',x,276,ACC,10)}});}
+ onView(ns,ds,0);ds()}
+var pc=$('pencilCv');if(pc){var c3=mkCanvas(pc,W,370),G=[['2H',.2,.05,.03],['HB',.36,.12,.06],['B',.48,.22,.12],['2B',.58,.32,.18],['4B',.72,.5,.3],['6B',.84,.65,.42]];
+ function grain(c,x,y,w,h,t,seed,sheen){var r=rng(seed);c.fillStyle='rgba(30,30,34,'+(t*.85)+')';c.fillRect(x,y,w,h);for(var k=0;k<w*h/9;k++){var a=r()*.6;c.fillStyle=r()<.5?'rgba(255,255,255,'+(a*(1-t)*.9)+')':'rgba(20,20,24,'+(a*t*.35)+')';c.fillRect(x+r()*w,y+r()*h,1.2,1.2)}
+   if(sheen){var g=c.createLinearGradient(x,y,x+w,y+h);g.addColorStop(.35,'rgba(255,255,255,0)');g.addColorStop(.5,'rgba(255,255,255,'+sheen+')');g.addColorStop(.65,'rgba(255,255,255,0)');c.fillStyle=g;c.fillRect(x,y,w,h)}}
+ var sel=-1;function dp(){c3.fillStyle='#fff';c3.fillRect(0,0,W,370);['TONE','LINE','SMUDGE','ERASED AFTER INK'].forEach(function(l,i){T(c3,l,8,[74,144,206,274][i],'#5c5c5a',9)});
+  G.forEach(function(g,i){var x=100+i*90,t=g[1],sm=g[2],res=g[3];if(sel===i){c3.fillStyle='#f1f1ef';c3.fillRect(x-8,4,86,360)}T(c3,g[0],x,26,INK,15,'left',800);
+   grain(c3,x,40,70,60,t,i+1,i>=4?.18:0);
+   var r=rng(i+9);c3.strokeStyle='rgba(30,30,34,'+(t*.95)+')';c3.lineWidth=1+i*.35;c3.beginPath();for(var k=0;k<=30;k++){var xx=x+k*70/30,yy=140+(r()-.5)*(.2+i*.08);if(k)c3.lineTo(xx,yy);else c3.moveTo(xx,yy)}c3.stroke();
+   grain(c3,x,182,35,40,t,i+20,0);c3.save();c3.filter='blur('+(2+sm*8)+'px)';c3.fillStyle='rgba(30,30,34,'+(t*.62)+')';c3.fillRect(x+35,186,30+sm*18,32);c3.restore();
+   c3.fillStyle='rgba(60,60,64,'+res+')';c3.fillRect(x,262+ -2,70,16);if(res>.1){c3.fillStyle='rgba(60,60,64,'+(res*.35)+')';c3.fillRect(x-3,256,76,28)}L(c3,[x,270],[x+70,270],2.8,INK);
+   T(c3,['clean','clean','ghost','smear','halo','film'][i],x,322,i<2?ACC:INK,11);
+   T(c3,['construction','construction','sketch','thumbnails','values','accents'][i],x,350,'#5c5c5a',10);
+  });T(c3,'Use:',8,350,'#5c5c5a',9)}
+ onView(pc,dp,0);dp();pc.addEventListener('click',function(e){var m=toLocal(pc,e,W),i=Math.floor((m.x-92)/90);if(i<0||i>5)return;sel=i;dp();[].forEach.call(document.querySelectorAll('#pencilTable tr[data-g]'),function(tr,j){tr.classList.toggle('on',j===i)});var tr=document.querySelectorAll('#pencilTable tr[data-g]')[i];$('pencilOut').innerHTML='<b>'+G[i][0]+':</b> '+tr.children[5].innerHTML+'. Erasing after ink: '+tr.children[4].innerHTML+'.'})}
+})();
+
 /* ---------- Session timer ---------- */
 (function(){
-var STAGES=[['Warm-up',5],['Drill',20],['Apply',15],['Log',5]],TOTAL=45*60,cells=[].slice.call($('pipe').children,1),fill=$('pipeFill'),lab=$('tLabel'),btn=$('tStart'),iv=0,el=0,running=false;
+var STAGES=[['Warm-up',10],['Drill',15],['Apply',15],['Log',5]],TOTAL=45*60,cells=[].slice.call($('pipe').children,1),fill=$('pipeFill'),lab=$('tLabel'),btn=$('tStart'),iv=0,el=0,running=false;
 function fmt(s){s=Math.max(0,Math.round(s));return Math.floor(s/60)+':'+('0'+s%60).slice(-2)}
 function paint(){var acc=0,cur=-1;STAGES.forEach(function(s,i){if(el>=acc&&el<acc+s[1]*60)cur=i;acc+=s[1]*60});
   cells.forEach(function(cel,i){cel.classList.toggle('now',i===cur&&el>0)});fill.style.width=(el/TOTAL*100)+'%';
